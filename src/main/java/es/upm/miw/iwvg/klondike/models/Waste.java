@@ -2,11 +2,11 @@ package es.upm.miw.iwvg.klondike.models;
 
 import java.util.List;
 
-public class Discard extends CardList{
+public class Waste extends CardStack{
 
     private static final int SIZE=3;
     
-    public Discard(){
+    public Waste(){
         super();
     }
     

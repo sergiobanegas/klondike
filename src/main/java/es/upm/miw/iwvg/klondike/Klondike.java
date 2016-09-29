@@ -1,8 +1,8 @@
 package es.upm.miw.iwvg.klondike;
 
+import es.upm.miw.iwvg.klondike.controllers.Logic;
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
-import es.upm.miw.iwvg.klondike.controllers.local.LocalLogic;
-import es.upm.miw.iwvg.klondike.views.console.ConsoleView;
+import es.upm.miw.iwvg.klondike.views.View;
 
 public class Klondike {
 
@@ -26,6 +26,6 @@ public class Klondike {
     }
     
     public static void main(String[] args) {
-        new Klondike(new ConsoleView(), new LocalLogic()).play();
+        new Klondike(new View(), new Logic()).play();
     }
 }

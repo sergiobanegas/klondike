@@ -8,13 +8,13 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CardListTest {
+public class CardStackTest {
 
-    private CardList cards;
+    private CardStack cards;
 
     @Before
     public void before() {
-        cards = new CardList();
+        cards = new CardStack();
         cards.addCard(new Card(CardValue.TWO, Suit.BASTOS));
         cards.addCard(new Card(CardValue.ACE, Suit.COPAS));
         cards.addCard(new Card(CardValue.QUEEN, Suit.ESPADAS));
@@ -23,7 +23,7 @@ public class CardListTest {
     @Test
     public void isEmptyTest() {
         assertFalse(cards.isEmpty());
-        cards = new CardList();
+        cards = new CardStack();
         assertTrue(cards.isEmpty());
     }
 

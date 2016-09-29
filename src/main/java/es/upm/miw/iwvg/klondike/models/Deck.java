@@ -2,7 +2,7 @@ package es.upm.miw.iwvg.klondike.models;
 
 import java.util.Collections;
 
-public class Deck extends CardList {
+public class Deck extends CardStack {
 
     public Deck() {
         super();
@@ -10,7 +10,7 @@ public class Deck extends CardList {
         Suit[] suits = Suit.values();
         for (CardValue cardValue : values) {
             for (Suit suit : suits) {
-                super.cards.add(new Card(cardValue, suit));
+                    super.cards.add(new Card(cardValue, suit));
             }
         }
         Collections.shuffle(super.cards);

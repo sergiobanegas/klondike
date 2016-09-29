@@ -1,19 +1,19 @@
-package es.upm.miw.iwvg.klondike.views.console;
+package es.upm.miw.iwvg.klondike.views;
 
 import es.upm.miw.iwvg.klondike.View;
 
-public class ConsoleView implements View {
+public class View implements View {
 	
 	private StartView startView;
 	
-	private GameView gameView;
+	private MoveView moveView;
 	
-	private ContinueView continueView;
+	private ExitView exitView;
 	
-	public ConsoleView(){
+	public View(){
 		startView = new StartView();
-		gameView = new GameView();
-		continueView = new ContinueView();
+		moveView = new MoveView();
+		exitView = new ExitView();
 	}
 
 	public void interact(OperationController operationController) {

@@ -1,6 +1,6 @@
 package es.upm.miw.iwvg.klondike.models;
 
-public class Foundation extends CardList {
+public class Foundation extends CardStack {
 
     public Foundation() {
         super();

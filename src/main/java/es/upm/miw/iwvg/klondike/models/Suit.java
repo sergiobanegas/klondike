@@ -2,7 +2,7 @@ package es.upm.miw.iwvg.klondike.models;
 
 public enum Suit {
 
-    OROS("o"), COPAS("c"), ESPADAS("e"), BASTOS("b");
+    HEARTS("h"), TILES("t"), CLOVERS("c"), PIKES("p");
 
     private String value;
 

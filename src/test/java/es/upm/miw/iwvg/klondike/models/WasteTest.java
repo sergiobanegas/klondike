@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class DiscardTest {
+public class WasteTest {
     
     @Test
     public void toStringTest() {
-        Discard discard = new Discard();
+        Waste discard = new Waste();
         assertEquals("<vacío>", discard.toString());
         Card card1 = new Card(CardValue.KING, Suit.OROS);
         discard.addCard(card1);

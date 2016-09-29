@@ -1,13 +1,12 @@
 package es.upm.miw.iwvg.klondike.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
-public class CardList {
-    protected List<Card> cards;
+public class CardStack {
+    protected Stack<Card> cards;
 
-    public CardList() {
-        cards = new ArrayList<Card>();
+    public CardStack() {
+        cards = new Stack<Card>();
     }
 
     public void addCard(Card card) {
@@ -16,22 +15,22 @@ public class CardList {
     }
 
     public Card getCard() {
-        return cards.get(cards.size() - 1);
+        return cards.pop();
     }
 
     public void removeCard() {
-        cards.remove(cards.size() - 1);
+        cards.pop();
     }
 
     public boolean isEmpty() {
         return cards.isEmpty();
     }
 
-    public List<Card> getCards() {
+    public Stack<Card> getCards() {
         return cards;
     }
 
-    public String toStringCardList(List<Card> cards) {
+    public String toStringCardList(Stack<Card> cards) {
         String toString = "";
         for (Card card : cards) {
             toString += card.toString();
