@@ -17,9 +17,9 @@ public class FoundationTest {
     @Test
     public void toStringTest() {
         assertEquals("<vacío>", foundation.toString());
-        foundation.addCard(new Card(CardValue.KING, Suit.BASTOS));
-        foundation.addCard(new Card(CardValue.NINE, Suit.ESPADAS));
-        Card lastCard = new Card(CardValue.ACE, Suit.OROS);
+        foundation.addCard(new Card(CardValue.KING, Suit.CLOVERS));
+        foundation.addCard(new Card(CardValue.NINE, Suit.CLOVERS));
+        Card lastCard = new Card(CardValue.ACE, Suit.CLOVERS);
         foundation.addCard(lastCard);
         assertEquals(lastCard.toString(), foundation.toString());
     }

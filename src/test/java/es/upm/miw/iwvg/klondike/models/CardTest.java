@@ -12,18 +12,18 @@ public class CardTest {
     @Before
     public void before() {
         this.cards = new Card[4];
-        this.cards[0] = new Card(CardValue.ACE, Suit.BASTOS);
-        this.cards[1] = new Card(CardValue.FOUR, Suit.COPAS);
-        this.cards[2] = new Card(CardValue.JACK, Suit.ESPADAS);
-        this.cards[3] = new Card(CardValue.KING, Suit.OROS);
+        this.cards[0] = new Card(CardValue.ACE, Suit.TILES);
+        this.cards[1] = new Card(CardValue.FOUR, Suit.PIKES);
+        this.cards[2] = new Card(CardValue.JACK, Suit.HEARTS);
+        this.cards[3] = new Card(CardValue.KING, Suit.CLOVERS);
     }
 
     @Test
     public void getSuitTest() {
-        assertEquals(Suit.BASTOS, this.cards[0].getSuit());
-        assertEquals(Suit.COPAS, this.cards[1].getSuit());
-        assertEquals(Suit.ESPADAS, this.cards[2].getSuit());
-        assertEquals(Suit.OROS, this.cards[3].getSuit());
+        assertEquals(Suit.TILES, this.cards[0].getSuit());
+        assertEquals(Suit.PIKES, this.cards[1].getSuit());
+        assertEquals(Suit.HEARTS, this.cards[2].getSuit());
+        assertEquals(Suit.CLOVERS, this.cards[3].getSuit());
     }
 
     @Test
@@ -36,9 +36,9 @@ public class CardTest {
 
     @Test
     public void isNextCardValue() {
-        assertTrue(this.cards[0].isNextCardValue(new Card(CardValue.TWO, Suit.ESPADAS)));
-        assertTrue(this.cards[1].isNextCardValue(new Card(CardValue.FIVE, Suit.BASTOS)));
-        assertFalse(this.cards[2].isNextCardValue(new Card(CardValue.KING, Suit.COPAS)));
-        assertFalse(this.cards[3].isNextCardValue(new Card(CardValue.THREE, Suit.OROS)));
+        assertTrue(this.cards[0].isNextCardValue(new Card(CardValue.TWO, Suit.TILES)));
+        assertTrue(this.cards[1].isNextCardValue(new Card(CardValue.FIVE, Suit.PIKES)));
+        assertFalse(this.cards[2].isNextCardValue(new Card(CardValue.KING, Suit.HEARTS)));
+        assertFalse(this.cards[3].isNextCardValue(new Card(CardValue.THREE, Suit.CLOVERS)));
     }
 }

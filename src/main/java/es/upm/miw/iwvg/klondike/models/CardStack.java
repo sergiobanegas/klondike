@@ -1,5 +1,6 @@
 package es.upm.miw.iwvg.klondike.models;
 
+import java.util.List;
 import java.util.Stack;
 
 public class CardStack {
@@ -30,7 +31,7 @@ public class CardStack {
         return cards;
     }
 
-    public String toStringCardList(Stack<Card> cards) {
+    public String toStringCardList(List<Card> cards) {
         String toString = "";
         for (Card card : cards) {
             toString += card.toString();
