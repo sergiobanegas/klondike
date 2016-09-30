@@ -2,7 +2,6 @@ package es.upm.miw.iwvg.klondike.controllers;
 
 
 import es.upm.miw.iwvg.klondike.models.Game;
-import es.upm.miw.iwvg.klondike.views.GameView;
 
 public abstract class MoveController extends OperationController {
 

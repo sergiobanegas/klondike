@@ -1,12 +1,10 @@
 package es.upm.miw.iwvg.klondike;
 
 import es.upm.miw.iwvg.klondike.controllers.DeckToWasteController;
-import es.upm.miw.iwvg.klondike.controllers.MoveController;
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
 import es.upm.miw.iwvg.klondike.controllers.StartController;
 import es.upm.miw.iwvg.klondike.views.GameView;
 import es.upm.miw.iwvg.klondike.views.StartView;
-import es.upm.miw.iwvg.klondike.views.ViewInterface;
 
 public class View{
 
