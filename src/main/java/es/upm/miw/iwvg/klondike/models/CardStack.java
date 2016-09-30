@@ -15,8 +15,12 @@ public class CardStack {
         cards.add(card);
     }
 
-    public Card getCard() {
+    public Card popCard() {
         return cards.pop();
+    }
+    
+    public Card getLastCard(){
+        return cards.get(cards.size()-1);
     }
 
     public void removeCard() {

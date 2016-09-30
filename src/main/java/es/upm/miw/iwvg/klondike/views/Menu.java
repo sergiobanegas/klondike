@@ -1,46 +1,48 @@
 package es.upm.miw.iwvg.klondike.views;
 
-import es.upm.miw.iwvg.klondike.controllers.DeckToWasteController;
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
+import es.upm.miw.iwvg.klondike.controllers.OptionController;
 import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.utils.IO;
 
 public class Menu {
     private Game game;
-
+    private OptionController optionController;
+    
     public Menu(Game game) {
         this.game = game;
+        this.optionController=new OptionController(game);
     }
 
     public void showStatus() {
         IO io = new IO();
         io.writeln("===========================");
-        io.write("Baraja:");
-        io.writeln(game.getDeck().toString());
-//        io.write("Descarte:");
-//        io.writeln(Klondike.getDiscard().toString());
-//        io.write("Palo oros:");
-//        io.writeln(Klondike.getFoundation(1).toString());
-//        io.write("Palo copas:");
-//        io.writeln(Klondike.getFoundation(2).toString());
-//        io.write("Palo espadas:");
-//        io.writeln(Klondike.getFoundation(3).toString());
-//        io.write("Palo bastos:");
-//        io.writeln(Klondike.getFoundation(4).toString());
-//        io.write("Escalera 1:");
-//        io.writeln(Klondike.getPile(1).toString());
-//        io.write("Escalera 2:");
-//        io.writeln(Klondike.getPile(2).toString());
-//        io.write("Escalera 3:");
-//        io.writeln(Klondike.getPile(3).toString());
-//        io.write("Escalera 4:");
-//        io.writeln(Klondike.getPile(4).toString());
-//        io.write("Escalera 5:");
-//        io.writeln(Klondike.getPile(5).toString());
-//        io.write("Escalera 6:");
-//        io.writeln(Klondike.getPile(6).toString());
-//        io.write("Escalera 7:");
-//        io.writeln(Klondike.getPile(7).toString());
+        io.write("Baraja: ");
+        io.writeln(game.getDeck().toString());      
+        io.write("Descarte: ");
+        io.writeln(game.getWaste().toString());
+        io.write("Palo oros: ");
+        io.writeln(game.getFoundation(0).toString());
+        io.write("Palo copas: ");
+        io.writeln(game.getFoundation(1).toString());
+        io.write("Palo espadas: ");
+        io.writeln(game.getFoundation(2).toString());
+        io.write("Palo bastos: ");
+        io.writeln(game.getFoundation(3).toString());
+        io.write("Escalera 1: ");
+        io.writeln(game.getTableauPile(0).toString());
+        io.write("Escalera 2: ");
+        io.writeln(game.getTableauPile(1).toString());
+        io.write("Escalera 3: ");
+        io.writeln(game.getTableauPile(2).toString());
+        io.write("Escalera 4: ");
+        io.writeln(game.getTableauPile(3).toString());
+        io.write("Escalera 5: ");
+        io.writeln(game.getTableauPile(4).toString());
+        io.write("Escalera 6: ");
+        io.writeln(game.getTableauPile(5).toString());
+        io.write("Escalera 7: ");
+        io.writeln(game.getTableauPile(6).toString());
         io.writeln("===========================");
     }
 
@@ -60,11 +62,15 @@ public class Menu {
     public OperationController render() {
             showStatus();
             showMenu();
-            IO io = new IO();
+            IO io = new IO();           
             int numOption = io.readInt("Opción? [1-9]:");
-            if (numOption > 9) {
-                io.writeln("¡ERROR! Opción no válida");
-            }
-            return new DeckToWasteController(game);
+            while (numOption>9){
+                if (numOption > 9) {
+                    io.writeln("¡ERROR! Opción no válida");
+                }
+                numOption = io.readInt("Opción? [1-9]:");
+            }     
+            return optionController.control(numOption);
+//            return new DeckToWasteController(game);
     }
 }

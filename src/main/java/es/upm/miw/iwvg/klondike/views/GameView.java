@@ -1,25 +1,18 @@
 package es.upm.miw.iwvg.klondike.views;
 
 import es.upm.miw.iwvg.klondike.controllers.DeckToWasteController;
-import es.upm.miw.iwvg.klondike.controllers.MoveController;
-import es.upm.miw.iwvg.klondike.utils.IO;
 
 public class GameView{
 
-	private IO io = new IO();
+//	private IO io = new IO();
 	
 	public void interact(DeckToWasteController deckToWasteController) {
 	    deckToWasteController.control();
 	}
 
-    public void visit(DeckToWasteController deckToWasteController) {
-        // this.showTitle("Pone", putController.take());
-        // PutTargetCoordinateView putCoordinateView = new PutTargetCoordinateView(
-        // putController.getCoordinateController());
-        // this.put(putController, putCoordinateView);
-        // this.showGame(putController);
-        System.out.println("Soy DeckToWasteController");
-    }
+//    public void visit(DeckToWasteController deckToWasteController) {
+//        System.out.println("Soy DeckToWasteController");
+//    }
 	
 //	public void visit(DeckToWasteController deckToWasteController) {
 ////		this.showTitle("Pone", putController.take());

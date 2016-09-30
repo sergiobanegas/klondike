@@ -9,8 +9,6 @@ public class Logic {
 
     private StartController startController;
 
-    private DeckToWasteController deckToWasteController;
-
     private Menu menu;
     //
     // private ExitController exitController;
@@ -19,7 +17,6 @@ public class Logic {
         game = new Game();
         menu = new Menu(game);
         startController = new StartController(game);
-        deckToWasteController = new DeckToWasteController(game);
         // exitController = new ExitController(game);
     }
 
@@ -29,7 +26,6 @@ public class Logic {
             return startController;
         case IN_GAME:
             OperationController controller = menu.render();
-            // System.out.println("En juego..");
             return controller;
         case FINAL:
 

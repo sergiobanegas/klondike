@@ -36,7 +36,7 @@ public class CardStackTest {
 
     @Test
     public void getCardTest() {
-        assertEquals(new Card(CardValue.QUEEN, Suit.TILES).toString(), cards.getCard().toString());
+        assertEquals(new Card(CardValue.QUEEN, Suit.TILES).toString(), cards.getLastCard().toString());
     }
 
     @Test

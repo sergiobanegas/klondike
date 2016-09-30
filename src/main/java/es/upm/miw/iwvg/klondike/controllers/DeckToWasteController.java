@@ -3,7 +3,6 @@ package es.upm.miw.iwvg.klondike.controllers;
 import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.views.ControllerInterface;
-import es.upm.miw.iwvg.klondike.views.GameView;
 
 public class DeckToWasteController extends MoveController implements ControllerInterface {
 
@@ -20,8 +19,22 @@ public class DeckToWasteController extends MoveController implements ControllerI
     
     @Override
     public void control() {
-        System.out.println("CONTROLANDO DeckToWasteController");       
-
+        for (int i=0; i<MAX_CARDS_DISCARD;i++){
+            if (validateMove() == null){
+                game.getWaste().addCard(game.getDeck().popCard());
+            }else{
+                System.out.println("ERROR: la baraja está vacía");
+                break;
+            };
+            
+        } 
+    }
+    
+    public Error validateMove() {
+        if (game.getDeck().isEmpty()){
+            return Error.DECK_EMPTY;
+        }
+        return null;
     }
 
 

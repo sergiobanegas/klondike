@@ -7,7 +7,7 @@ import es.upm.miw.iwvg.klondike.models.State;
 
 public abstract class Controller {
 
-	private Game game;
+	protected Game game;
 
 	protected Controller(Game game) {
 		assert game != null;
