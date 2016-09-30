@@ -19,6 +19,7 @@ public class Menu {
         io.writeln("===========================");
         io.write("Baraja: ");
         io.writeln(game.getDeck().toString());      
+        io.writeln(game.getDeck().getCards().toString());  
         io.write("Descarte: ");
         io.writeln(game.getWaste().toString());
         io.write("Palo oros: ");
@@ -71,6 +72,5 @@ public class Menu {
                 numOption = io.readInt("Opción? [1-9]:");
             }     
             return optionController.control(numOption);
-//            return new DeckToWasteController(game);
     }
 }

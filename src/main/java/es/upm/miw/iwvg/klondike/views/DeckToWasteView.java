@@ -2,17 +2,10 @@ package es.upm.miw.iwvg.klondike.views;
 
 import es.upm.miw.iwvg.klondike.controllers.DeckToWasteController;
 
-public class DeckToWasteView implements ViewInterface {
+public class DeckToWasteView {
 
-    private DeckToWasteController deckToWasteController;
-
-    public DeckToWasteView(ControllerInterface controller) {
-        deckToWasteController = (DeckToWasteController) controller;
-    }
-
-    @Override
-    public void render() {
-        deckToWasteController.control();
+    public void interact(DeckToWasteController controller) {
+        controller.control();
     }
 
 }

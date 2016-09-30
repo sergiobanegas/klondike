@@ -18,9 +18,9 @@ public class CardStack {
     public Card popCard() {
         return cards.pop();
     }
-    
-    public Card getLastCard(){
-        return cards.get(cards.size()-1);
+
+    public Card getLastCard() {
+        return cards.get(cards.size() - 1);
     }
 
     public void removeCard() {
@@ -33,6 +33,10 @@ public class CardStack {
 
     public Stack<Card> getCards() {
         return cards;
+    }
+
+    public void clear() {
+        this.cards = new Stack<Card>();
     }
 
     public String toStringCardList(List<Card> cards) {

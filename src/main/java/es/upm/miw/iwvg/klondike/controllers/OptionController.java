@@ -17,29 +17,7 @@ public class OptionController {
     }
 
     public OperationController control(int numOption) {
-        switch (numOption){
-        case 1:
             return (OperationController) options[numOption - 1].getController();
-//        case 2:
-//            break;
-//        case 3:
-//            break;
-//        case 4:
-//            break;
-//        case 5:
-//            break;
-//        case 6:
-//            break;
-//        case 7:
-//            break;
-//        case 8:
-//            break;
-//        case 9:
-//            break;
-//        }
-           default:
-               return null;
-        }
     }
 
     public static int getNumOptions() {

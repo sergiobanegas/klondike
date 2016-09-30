@@ -33,6 +33,10 @@ public class Card {
         return card.getColor().getValue()==color.getValue();
         
     }
+    
+    public boolean validAbove(Card card){
+        return !this.isSameColor(card) && this.isNextCardValue(card);
+    }
 
     public boolean isNextCardValue(Card card) {
         return value.next() == card.getValue();
