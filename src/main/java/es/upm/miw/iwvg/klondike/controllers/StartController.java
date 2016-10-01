@@ -35,8 +35,8 @@ public class StartController extends OperationController {
     }
 
     private void createFoundations() {
-        for (int i=0;i<Suit.values().length;i++){
-            game.addFoundation(new Foundation());
+        for (Suit suit: Suit.values()){
+            game.addFoundation(new Foundation(suit));
         }
     }
 

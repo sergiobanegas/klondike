@@ -2,8 +2,10 @@ package es.upm.miw.iwvg.klondike.models;
 
 import es.upm.miw.iwvg.klondike.controllers.DeckToWasteController;
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
+import es.upm.miw.iwvg.klondike.controllers.TableauToFoundationController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToDeckController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToFoundationController;
+import es.upm.miw.iwvg.klondike.controllers.WasteToTableauController;
 import es.upm.miw.iwvg.klondike.views.ViewInterface;
 
 public class Option {
@@ -23,18 +25,12 @@ public class Option {
         case 3:
             optionControllerInterface = new WasteToFoundationController(game);
             break;
-        // case 3:
-        // optionControllerInterface = new DiscardToFoundationController();
-        // viewInterface = new DiscardToFoundationView(optionControllerInterface);
-        // break;
-        // case 4:
-        // optionControllerInterface = new DiscardToPileController();
-        // viewInterface = new DiscardToPileView(optionControllerInterface);
-        // break;
-        // case 5:
-        // optionControllerInterface = new PileToFoundationController();
-        // viewInterface = new PileToFoundationView(optionControllerInterface);
-        // break;
+        case 4:
+            optionControllerInterface = new WasteToTableauController(game);
+            break;
+         case 5:
+             optionControllerInterface = new TableauToFoundationController(game);
+         break;
         // case 6:
         // optionControllerInterface = new PileToPileController();
         // viewInterface = new PileToPileView(optionControllerInterface);

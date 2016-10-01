@@ -2,8 +2,19 @@ package es.upm.miw.iwvg.klondike.models;
 
 public class Foundation extends CardStack {
 
-    public Foundation() {
+    private Suit suit;
+    
+    public Foundation(Suit suit) {
         super();
+        this.suit=suit;
+    }
+    
+    public Suit getSuit() {
+        return suit;
+    }
+    
+    public boolean sameSuit(Card card){
+        return card.isSuit(suit);
     }
 
     @Override
