@@ -22,13 +22,13 @@ public class Menu {
         io.writeln(game.getDeck().getCards().toString());  
         io.write("Descarte: ");
         io.writeln(game.getWaste().toString());
-        io.write("Palo oros: ");
+        io.write("Palo corazones: ");
         io.writeln(game.getFoundation(0).toString());
-        io.write("Palo copas: ");
+        io.write("Palo diamantes: ");
         io.writeln(game.getFoundation(1).toString());
-        io.write("Palo espadas: ");
+        io.write("Palo tréboles: ");
         io.writeln(game.getFoundation(2).toString());
-        io.write("Palo bastos: ");
+        io.write("Palo picas: ");
         io.writeln(game.getFoundation(3).toString());
         io.write("Escalera 1: ");
         io.writeln(game.getTableauPile(0).toString());

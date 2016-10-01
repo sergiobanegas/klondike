@@ -11,7 +11,7 @@ public class FoundationTest {
 
     @Before
     public void before() {
-        foundation = new Foundation();
+        foundation = new Foundation(Suit.CLOVERS);
     }
 
     @Test

@@ -17,42 +17,42 @@ public class Game {
 
     public Game() {
         state = State.INITIAL;
-        this.foundations=new ArrayList<Foundation>();
-        this.tableauPiles=new ArrayList<TableauPiles>();
+        this.foundations = new ArrayList<Foundation>();
+        this.tableauPiles = new ArrayList<TableauPiles>();
     }
 
     public State getState() {
         return state;
     }
-    
-    public TableauPiles  getTableauPile(int position){
+
+    public TableauPiles getTableauPile(int position) {
         return tableauPiles.get(position);
     }
-    
+
     public List<TableauPiles> getTableauPiles() {
         return tableauPiles;
     }
-    
-    public void addFoundation(Foundation foundation){
+
+    public void addFoundation(Foundation foundation) {
         this.foundations.add(foundation);
     }
-    
+
     public List<Foundation> getFoundations() {
         return foundations;
     }
-    
+
     public Foundation getFoundation(int position) {
         return foundations.get(position);
     }
-    
+
     public Waste getWaste() {
         return waste;
     }
-    
+
     public Deck getDeck() {
         return deck;
     }
-    
+
     public void setDeck(Deck deck) {
         this.deck = deck;
     }
@@ -60,15 +60,15 @@ public class Game {
     public void setState(State state) {
         this.state = state;
     }
-    
+
     public void setFoundations(List<Foundation> foundations) {
         this.foundations = foundations;
     }
-    
+
     public void setTableauPiles(List<TableauPiles> tableauPiles) {
         this.tableauPiles = tableauPiles;
     }
-    
+
     public void setWaste(Waste waste) {
         this.waste = waste;
     }
@@ -80,7 +80,7 @@ public class Game {
     public void remove(CardStack target) {
         target.removeCard();
     }
-    
+
     public boolean validMove(Card card, CardStack target) {
         return target.getLastCard().isNextCardValue(card);
     }

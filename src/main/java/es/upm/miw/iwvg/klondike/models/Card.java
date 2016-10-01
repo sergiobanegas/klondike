@@ -30,12 +30,19 @@ public class Card {
     }
     
     public boolean isSameColor(Card card) {
-        return card.getColor().getValue()==color.getValue();
-        
+        return card.getColor().getValue()==color.getValue();  
     }
     
-    public boolean validAbove(Card card){
-        return !this.isSameColor(card) && this.isNextCardValue(card);
+    public boolean isSuit(Suit suit) {
+        return suit.getValue()==this.suit.getValue();
+    }
+    
+    public boolean validAboveTableau(Card card){
+        return !this.isSameColor(card) && card.isNextCardValue(this);
+    }
+    
+    public boolean validAboveFoundation(Card card){
+        return this.isSameColor(card) && this.isNextCardValue(card);
     }
 
     public boolean isNextCardValue(Card card) {
