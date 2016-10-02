@@ -6,6 +6,7 @@ import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Card;
 import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.TableauPiles;
+import es.upm.miw.iwvg.klondike.views.MoveView;
 
 public class TableauToTableauController extends MoveController {
 
@@ -77,6 +78,11 @@ public class TableauToTableauController extends MoveController {
             return null;
         }
         return Error.FLIPCARD_ERROR;
+    }
+
+    @Override
+    public void acceptMove(MoveView view) {
+        view.visit(this);
     }
 
 }

@@ -1,6 +1,5 @@
 package es.upm.miw.iwvg.klondike;
 
-import es.upm.miw.iwvg.klondike.controllers.Logic;
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
 
 public class Klondike {

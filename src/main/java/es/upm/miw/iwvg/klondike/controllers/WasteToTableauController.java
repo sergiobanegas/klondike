@@ -3,6 +3,7 @@ package es.upm.miw.iwvg.klondike.controllers;
 import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.TableauPiles;
+import es.upm.miw.iwvg.klondike.views.MoveView;
 
 public class WasteToTableauController extends MoveController {
 
@@ -53,6 +54,11 @@ public class WasteToTableauController extends MoveController {
 
     public void setNumTableau(int numTableau) {
         this.numTableau = numTableau;
+    }
+    
+    @Override
+    public void acceptMove(MoveView view) {
+        view.visit(this);  
     }
 
 }

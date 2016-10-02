@@ -3,6 +3,7 @@ package es.upm.miw.iwvg.klondike.controllers;
 import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.TableauPiles;
+import es.upm.miw.iwvg.klondike.views.MoveView;
 
 public class FlipCardController extends MoveController {
 
@@ -39,6 +40,11 @@ public class FlipCardController extends MoveController {
 
     public void setNumTableau(int numTableau) {
         this.numTableau = numTableau;
+    }
+
+    @Override
+    public void acceptMove(MoveView view) {
+        view.visit(this);  
     }
 
 }
