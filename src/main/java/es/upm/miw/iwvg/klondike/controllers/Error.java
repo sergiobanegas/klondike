@@ -4,7 +4,8 @@ public enum Error {
 	
 	NOT_VALID_MOVE("No se puede colocar la carta en esa pila"),
 	REPEATED_COORDINATE(""),
-	DECK_EMPTY("La baraja está vacía"),
+	DECK_EMPTY("La última carta esta boca arriba"),
+	FLIPCARD_ERROR("La baraja está vacía"),
 	INVALID_SUIT("El palo no es el mismo"),
 	WASTE_EMPTY("El descarte está vacío"),
 	INVALID_CARD("El número o el color de la carta no corresponde con la escalera destino"),

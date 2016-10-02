@@ -16,7 +16,7 @@ public class WasteToFoundationController extends MoveController {
 
     public void control(int numFoundation) {
         if (validateMove(numFoundation) != null) {
-            System.out.println("ERROR: movimiento no válido");
+            System.out.println("ERROR!!! Movimiento no válido");
         } else {
             game.getFoundation(numFoundation).addCard(game.getWaste().popCard());
         }

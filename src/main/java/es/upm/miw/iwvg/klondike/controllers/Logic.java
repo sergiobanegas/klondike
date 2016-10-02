@@ -17,7 +17,6 @@ public class Logic {
         game = new Game();
         menu = new Menu(game);
         startController = new StartController(game);
-        // exitController = new ExitController(game);
     }
 
     public OperationController getOperationController() {

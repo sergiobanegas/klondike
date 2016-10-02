@@ -2,6 +2,7 @@ package es.upm.miw.iwvg.klondike.controllers;
 
 import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Game;
+import es.upm.miw.iwvg.klondike.models.TableauPiles;
 
 public class TableauToFoundationController extends MoveController {
 
@@ -15,11 +16,21 @@ public class TableauToFoundationController extends MoveController {
     }
 
     public void control(int numTableau, int numFoundation) {
-        if (validateMove(numTableau, numFoundation) != null) {
-            System.out.println("ERROR: movimiento no válido");
+        TableauPiles tableauOrigin = game.getTableauPile(numTableau);
+        if (checkFaceUpCard(tableauOrigin) != null) {
+            System.out.println("ERROR!!! La escalera no tiene cartas descubiertas");
+        } else if (validateMove(numTableau, numFoundation) != null) {
+            System.out.println("ERROR!!! Movimiento no válido");
         } else {
             game.getFoundation(numFoundation).addCard(game.getTableauPile(numTableau).popCard());
         }
+    }
+
+    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
+        if (tableauOrigin.hasFaceUpCards()) {
+            return null;
+        }
+        return Error.FLIPCARD_ERROR;
     }
 
     public Error validateMove(int numTableau, int numFoundation) {

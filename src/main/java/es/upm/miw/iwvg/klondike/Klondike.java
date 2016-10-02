@@ -13,17 +13,18 @@ public class Klondike {
         this.view = view;
         this.logic = logic;
     }
-    
+
     public void play() {
         OperationController controller;
+        boolean finalized = false;
         do {
             controller = logic.getOperationController();
-            if (controller != null){
-                view.interact(controller);
+            if (controller != null) {
+                finalized = view.interact(controller);
             }
-        } while (controller != null);   
+        } while (controller != null && !finalized);
     }
-    
+
     public static void main(String[] args) {
         new Klondike(new View(), new Logic()).play();
     }

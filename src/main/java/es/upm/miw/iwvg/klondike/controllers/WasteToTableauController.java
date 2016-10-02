@@ -16,11 +16,21 @@ public class WasteToTableauController extends MoveController {
     }
 
     public void control(int numTableau) {
-        if (validateMove(numTableau) != null){
-            System.out.println("ERROR: movimiento no válido");
-        }else{
+        TableauPiles tableau = game.getTableauPile(numTableau);
+        if (checkFaceUpCard(tableau) != null) {
+            System.out.println("ERROR!!! La escalera no tiene cartas descubiertas");
+        } else if (validateMove(numTableau) != null) {
+            System.out.println("ERROR!!! Movimiento no válido");
+        } else {
             game.getTableauPile(numTableau).addCard(game.getWaste().popCard());
         }
+    }
+
+    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
+        if (tableauOrigin.hasFaceUpCards()) {
+            return null;
+        }
+        return Error.FLIPCARD_ERROR;
     }
 
     public Error validateMove(int numTableau) {

@@ -1,8 +1,12 @@
 package es.upm.miw.iwvg.klondike.models;
 
 import es.upm.miw.iwvg.klondike.controllers.DeckToWasteController;
+import es.upm.miw.iwvg.klondike.controllers.ExitController;
+import es.upm.miw.iwvg.klondike.controllers.FlipCardController;
+import es.upm.miw.iwvg.klondike.controllers.FoundationToTableauController;
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
 import es.upm.miw.iwvg.klondike.controllers.TableauToFoundationController;
+import es.upm.miw.iwvg.klondike.controllers.TableauToTableauController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToDeckController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToFoundationController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToTableauController;
@@ -28,25 +32,21 @@ public class Option {
         case 4:
             optionControllerInterface = new WasteToTableauController(game);
             break;
-         case 5:
-             optionControllerInterface = new TableauToFoundationController(game);
-         break;
-        // case 6:
-        // optionControllerInterface = new PileToPileController();
-        // viewInterface = new PileToPileView(optionControllerInterface);
-        // break;
-        // case 7:
-        // optionControllerInterface = new FundationToPileController();
-        // viewInterface = new FoundationToPileView(optionControllerInterface);
-        // break;
-        // case 8:
-        // optionControllerInterface = new FlipController();
-        // viewInterface = new FlipView(optionControllerInterface);
-        // break;
-        // case 9:
-        // optionControllerInterface = new QuitController();
-        // viewInterface = new QuitView(optionControllerInterface);
-        // break;
+        case 5:
+            optionControllerInterface = new TableauToFoundationController(game);
+            break;
+        case 6:
+            optionControllerInterface = new TableauToTableauController(game);
+            break;
+        case 7:
+            optionControllerInterface = new FoundationToTableauController(game);
+            break;
+        case 8:
+            optionControllerInterface = new FlipCardController(game);
+            break;
+        case 9:
+            optionControllerInterface = new ExitController(game);
+            break;
         }
     }
 

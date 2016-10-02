@@ -4,16 +4,16 @@ public class Card {
     private CardValue value;
 
     private Color color;
-    
+
     private Suit suit;
 
     public Card(CardValue value, Suit suit) {
         this.value = value;
         this.suit = suit;
-        if (suit.equals(Suit.HEARTS)||suit.equals(Suit.TILES)){
-            this.color=Color.RED;
-        }else{
-            this.color=Color.BLACK;
+        if (suit.equals(Suit.HEARTS) || suit.equals(Suit.TILES)) {
+            this.color = Color.RED;
+        } else {
+            this.color = Color.BLACK;
         }
     }
 
@@ -24,24 +24,24 @@ public class Card {
     public CardValue getValue() {
         return value;
     }
-    
+
     public Color getColor() {
         return color;
     }
-    
+
     public boolean isSameColor(Card card) {
-        return card.getColor().getValue()==color.getValue();  
+        return card.getColor().getValue() == color.getValue();
     }
-    
+
     public boolean isSuit(Suit suit) {
-        return suit.getValue()==this.suit.getValue();
+        return suit.getValue() == this.suit.getValue();
     }
-    
-    public boolean validAboveTableau(Card card){
+
+    public boolean validAboveTableau(Card card) {
         return !this.isSameColor(card) && card.isNextCardValue(this);
     }
-    
-    public boolean validAboveFoundation(Card card){
+
+    public boolean validAboveFoundation(Card card) {
         return this.isSameColor(card) && this.isNextCardValue(card);
     }
 

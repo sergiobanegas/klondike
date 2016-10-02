@@ -10,7 +10,7 @@ public class Deck extends CardStack {
         Suit[] suits = Suit.values();
         for (CardValue cardValue : values) {
             for (Suit suit : suits) {
-                    super.cards.add(new Card(cardValue, suit));
+                super.cards.add(new Card(cardValue, suit));
             }
         }
         Collections.shuffle(super.cards);
