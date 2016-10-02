@@ -15,13 +15,12 @@ public class Klondike {
 
     public void play() {
         OperationController controller;
-        boolean finalized = false;
         do {
             controller = logic.getOperationController();
             if (controller != null) {
-                finalized = view.interact(controller);
+                view.interact(controller);
             }
-        } while (controller != null && !finalized);
+        } while (controller != null);
     }
 
     public static void main(String[] args) {

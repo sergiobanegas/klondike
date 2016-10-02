@@ -40,10 +40,10 @@ public class MoveView implements ViewInterface {
         flipCardView = new FlipCardView();
     }
 
-    public boolean interact(OperationController controller) {
+    @Override
+    public void interact(OperationController controller) {
         MoveController moveController = (MoveController) controller;
         moveController.acceptMove(this);
-        return true;
     }
 
     public void visit(DeckToWasteController deckToWasteController) {

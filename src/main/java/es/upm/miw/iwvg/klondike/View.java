@@ -1,11 +1,12 @@
 package es.upm.miw.iwvg.klondike;
 
 import es.upm.miw.iwvg.klondike.controllers.ExitController;
+import es.upm.miw.iwvg.klondike.controllers.FinalizedController;
 import es.upm.miw.iwvg.klondike.controllers.MoveController;
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
 import es.upm.miw.iwvg.klondike.controllers.StartController;
-import es.upm.miw.iwvg.klondike.utils.IO;
 import es.upm.miw.iwvg.klondike.views.ExitView;
+import es.upm.miw.iwvg.klondike.views.FinalizedView;
 import es.upm.miw.iwvg.klondike.views.MoveView;
 import es.upm.miw.iwvg.klondike.views.StartView;
 import es.upm.miw.iwvg.klondike.views.ViewInterface;
@@ -17,21 +18,20 @@ public class View implements ViewInterface {
     private MoveView moveView;
 
     private ExitView exitView;
+    
+    private FinalizedView finalizedView;
 
     public View() {
         startView = new StartView();
         moveView = new MoveView();
         exitView = new ExitView();
+        finalizedView = new FinalizedView();
     }
 
-    public boolean interact(OperationController operationController) {
+    @Override
+    public void interact(OperationController operationController) {
         assert operationController != null;
         operationController.accept(this);
-        if (operationController.isGameFinalized()) {
-            new IO().writeln("ENHORABUENA, HAS GANADO!!!");
-            return true;
-        }
-        return false;
     }
 
     public void visit(StartController startController) {
@@ -44,6 +44,10 @@ public class View implements ViewInterface {
 
     public void visit(ExitController exitController) {
         exitView.interact(exitController);
+    }
+    
+    public void visit(FinalizedController finalizedController) {
+        finalizedView.interact(finalizedController);
     }
 
 }
