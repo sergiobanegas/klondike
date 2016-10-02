@@ -60,10 +60,10 @@ public class FoundationToTableauController extends MoveController {
     public void setNumFoundation(int numFoundation) {
         this.numFoundation = numFoundation;
     }
-    
+
     @Override
     public void acceptMove(MoveView view) {
-        view.visit(this);  
+        view.visit(this);
     }
 
 }

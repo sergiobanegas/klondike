@@ -50,5 +50,5 @@ public class Option {
     public OperationController getController() {
         return optionControllerInterface;
     }
-    
+
 }

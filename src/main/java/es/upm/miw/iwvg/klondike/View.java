@@ -18,7 +18,7 @@ public class View implements ViewInterface {
     private MoveView moveView;
 
     private ExitView exitView;
-    
+
     private FinalizedView finalizedView;
 
     public View() {
@@ -45,7 +45,7 @@ public class View implements ViewInterface {
     public void visit(ExitController exitController) {
         exitView.interact(exitController);
     }
-    
+
     public void visit(FinalizedController finalizedController) {
         finalizedView.interact(finalizedController);
     }

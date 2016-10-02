@@ -44,7 +44,7 @@ public class FlipCardController extends MoveController {
 
     @Override
     public void acceptMove(MoveView view) {
-        view.visit(this);  
+        view.visit(this);
     }
 
 }

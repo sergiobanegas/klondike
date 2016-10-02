@@ -7,18 +7,19 @@ import es.upm.miw.iwvg.klondike.utils.IO;
 
 public class Menu {
     private Game game;
+
     private OptionController optionController;
-    
+
     public Menu(Game game) {
         this.game = game;
-        this.optionController=new OptionController(game);
+        this.optionController = new OptionController(game);
     }
 
     public void showStatus() {
         IO io = new IO();
         io.writeln("===========================");
         io.write("Baraja: ");
-        io.writeln(game.getDeck().toString());      
+        io.writeln(game.getDeck().toString());
         io.write("Descarte: ");
         io.writeln(game.getWaste().toString());
         io.write("Palo corazones: ");
@@ -60,16 +61,16 @@ public class Menu {
     }
 
     public OperationController render() {
-            showStatus();
-            showMenu();
-            IO io = new IO();           
-            int numOption = io.readInt("Opción? [1-9]:");
-            while (numOption>9){
-                if (numOption > 9) {
-                    io.writeln("¡ERROR! Opción no válida");
-                }
-                numOption = io.readInt("Opción? [1-9]:");
-            }     
-            return optionController.control(numOption);
+        showStatus();
+        showMenu();
+        IO io = new IO();
+        int numOption = io.readInt("Opción? [1-9]:");
+        while (numOption > 9) {
+            if (numOption > 9) {
+                io.writeln("¡ERROR! Opción no válida");
+            }
+            numOption = io.readInt("Opción? [1-9]:");
+        }
+        return optionController.control(numOption);
     }
 }
