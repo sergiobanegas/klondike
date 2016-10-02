@@ -1,19 +1,18 @@
 package es.upm.miw.iwvg.klondike.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 public class TableauPiles {
 
     public static final int NUMBER_OF_PILES = 7;
 
-    private CardStack cardsFaceDown;
+    private Stack<Card> cardsFaceDown;
 
-    private List<Card> cardsFaceUp;
+    private Stack<Card> cardsFaceUp;
 
     public TableauPiles() {
-        this.cardsFaceDown = new CardStack();
-        this.cardsFaceUp = new ArrayList<Card>();
+        this.cardsFaceDown = new Stack<Card>();
+        this.cardsFaceUp = new Stack<Card>();
     }
 
     public TableauPiles(int length) {
@@ -27,27 +26,39 @@ public class TableauPiles {
     public Card getLastCard() {
         return cardsFaceUp.get(cardsFaceUp.size() - 1);
     }
-    
-    public Card popCard(){
-        Card card=getLastCard();
-        cardsFaceUp.remove(cardsFaceUp.size()-1);
-        return card;
+
+    public void flipCard() {
+        assert cardsFaceUp.isEmpty() == true;
+        cardsFaceUp.push(cardsFaceDown.pop());
+    }
+
+    public Card popCard() {
+        return cardsFaceUp.pop();
     }
 
     public void addCard(Card card) {
         cardsFaceUp.add(card);
     }
 
-    public CardStack getCardsFaceDown() {
+    public Stack<Card> getCardsFaceDown() {
         return cardsFaceDown;
     }
 
-    public List<Card> getCardsFaceUp() {
+    public boolean hasFaceUpCards() {
+        return !this.cardsFaceUp.isEmpty();
+    }
+
+    public Stack<Card> getCardsFaceUp() {
         return cardsFaceUp;
     }
 
     public static int getNumberOfPiles() {
         return NUMBER_OF_PILES;
+    }
+
+    public void clear() {
+        cardsFaceUp = new Stack<Card>();
+        cardsFaceDown = new Stack<Card>();
     }
 
     @Override
@@ -57,12 +68,12 @@ public class TableauPiles {
         }
 
         String stringPileDown = "";
-        for (int i = 0; i < cardsFaceDown.getCards().size(); i++) {
+        for (int i = 0; i < cardsFaceDown.size(); i++) {
             stringPileDown += "[";
         }
         String stringPileUp = "";
-        for (Card cardFaceUp : cardsFaceUp) {
-            stringPileDown += cardFaceUp;
+        for (int i = 0; i < cardsFaceUp.size(); i++) {
+            stringPileDown += cardsFaceUp.get(i);
         }
         return stringPileDown + stringPileUp;
     }

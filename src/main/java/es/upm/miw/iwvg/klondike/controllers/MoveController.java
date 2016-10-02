@@ -10,12 +10,4 @@ public abstract class MoveController extends OperationController {
         super(game);
     }
         
-
-//    public Error validateTarget(Coordinate target) {
-//        if (!this.empty(target)) {
-//            System.out.println("Error no libre");
-//            return Error.NOT_EMPTY;
-//        }
-//        return null;
-//    }
 }

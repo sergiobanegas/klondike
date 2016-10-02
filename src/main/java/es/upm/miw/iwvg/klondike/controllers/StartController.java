@@ -27,7 +27,7 @@ public class StartController extends OperationController {
         for (int i = 0; i < TableauPiles.NUMBER_OF_PILES; i++) {
             TableauPiles tableau = new TableauPiles();
             for (int j = 0; j < i; j++) {
-                tableau.getCardsFaceDown().addCard(game.getDeck().popCard());
+                tableau.getCardsFaceDown().add(game.getDeck().popCard());
             }
             tableau.getCardsFaceUp().add(game.getDeck().popCard());
             game.getTableauPiles().add(tableau);

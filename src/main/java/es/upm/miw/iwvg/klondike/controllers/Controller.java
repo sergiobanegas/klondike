@@ -49,4 +49,8 @@ public abstract class Controller {
 		return game.isGameFinalized();
 	}	
 	
+	public boolean isGameQuit() {
+        return game.isGameQuit();
+    }
+	
 }
