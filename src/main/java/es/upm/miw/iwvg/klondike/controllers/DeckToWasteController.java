@@ -39,7 +39,7 @@ public class DeckToWasteController extends MoveController {
     public void accept(View view) {
         view.visit(this);
     }
-    
+
     @Override
     public void acceptMove(MoveView view) {
         view.visit(this);

@@ -12,7 +12,7 @@ public class WasteToFoundationView {
             io.writeln("ERROR!!! El número del palo debe ser entre 1 y 4 inclusives");
             numFoundation = io.readInt("¿A qué palo? [1-4]:");
         }
-        controller.setNumFoundation(numFoundation-1);
+        controller.setNumFoundation(numFoundation - 1);
         controller.control();
     }
 }

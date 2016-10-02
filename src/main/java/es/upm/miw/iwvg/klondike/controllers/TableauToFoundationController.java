@@ -6,7 +6,7 @@ import es.upm.miw.iwvg.klondike.models.TableauPiles;
 import es.upm.miw.iwvg.klondike.views.MoveView;
 
 public class TableauToFoundationController extends MoveController {
-    
+
     private int numTableau, numFoundation;
 
     public TableauToFoundationController(Game game) {
@@ -46,13 +46,13 @@ public class TableauToFoundationController extends MoveController {
         }
         return Error.INVALID_SUIT;
     }
-    
-    public void setNumTableau(int numTableau){
-        this.numTableau=numTableau;
+
+    public void setNumTableau(int numTableau) {
+        this.numTableau = numTableau;
     }
-    
-    public void setNumFoundation(int numFoundation){
-        this.numFoundation=numFoundation;
+
+    public void setNumFoundation(int numFoundation) {
+        this.numFoundation = numFoundation;
     }
 
     public Error checkFaceUpCard(TableauPiles tableauOrigin) {
@@ -61,10 +61,10 @@ public class TableauToFoundationController extends MoveController {
         }
         return Error.FLIPCARD_ERROR;
     }
-    
+
     @Override
     public void acceptMove(MoveView view) {
-        view.visit(this);  
+        view.visit(this);
     }
 
 }

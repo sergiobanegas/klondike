@@ -2,14 +2,14 @@ package es.upm.miw.iwvg.klondike.models;
 
 import java.util.List;
 
-public class Waste extends CardStack{
+public class Waste extends CardStack {
 
-    private static final int SIZE=3;
-    
-    public Waste(){
+    private static final int SIZE = 3;
+
+    public Waste() {
         super();
     }
-    
+
     @Override
     public String toString() {
         if (super.cards.isEmpty()) {

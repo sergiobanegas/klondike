@@ -14,7 +14,7 @@ public class Game {
     private Waste waste;
 
     private State state;
-    
+
     private Option option;
 
     public Game() {
@@ -38,10 +38,11 @@ public class Game {
     public void addFoundation(Foundation foundation) {
         this.foundations.add(foundation);
     }
-    
+
     public Option getOption() {
         return option;
     }
+
     public void setOption(Option option) {
         this.option = option;
     }
@@ -95,19 +96,19 @@ public class Game {
     }
 
     public boolean isGameFinalized() {
-        int cards=0;
-        for (Foundation foundation: foundations){
-            cards+=foundation.getCards().size();
+        int cards = 0;
+        for (Foundation foundation : foundations) {
+            cards += foundation.getCards().size();
         }
-        return cards==Suit.values().length* CardValue.values().length;
+        return cards == Suit.values().length * CardValue.values().length;
     }
-    
-    public void end(){
+
+    public void end() {
         deck.clear();
         waste.clear();
-        for (TableauPiles tableauPile: tableauPiles){
+        for (TableauPiles tableauPile : tableauPiles) {
             tableauPile.clear();
-        }     
+        }
     }
 
 }

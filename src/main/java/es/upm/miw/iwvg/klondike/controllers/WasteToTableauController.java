@@ -55,10 +55,10 @@ public class WasteToTableauController extends MoveController {
     public void setNumTableau(int numTableau) {
         this.numTableau = numTableau;
     }
-    
+
     @Override
     public void acceptMove(MoveView view) {
-        view.visit(this);  
+        view.visit(this);
     }
 
 }

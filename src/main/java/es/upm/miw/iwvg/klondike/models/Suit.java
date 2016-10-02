@@ -9,7 +9,7 @@ public enum Suit {
     private Suit(String value) {
         this.value = value;
     }
-    
+
     public int position() {
         return this.ordinal() + 1;
     }
@@ -17,6 +17,5 @@ public enum Suit {
     public String getValue() {
         return value;
     }
-    
-    
+
 }
