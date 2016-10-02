@@ -3,6 +3,7 @@ package es.upm.miw.iwvg.klondike.controllers;
 import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.views.ControllerInterface;
+import es.upm.miw.iwvg.klondike.views.MoveView;
 
 public class WasteToDeckController extends MoveController implements ControllerInterface {
 
@@ -31,6 +32,11 @@ public class WasteToDeckController extends MoveController implements ControllerI
             return Error.WASTE_EMPTY;
         }
         return null;
+    }
+    
+    @Override
+    public void acceptMove(MoveView view) {
+        view.visit(this);  
     }
 
 }

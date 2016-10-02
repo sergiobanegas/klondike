@@ -27,11 +27,12 @@ public class StartController extends OperationController {
     }
 
     private void createFoundations() {
-        for (Suit suit: Suit.values()){
+        for (Suit suit : Suit.values()) {
             game.addFoundation(new Foundation(suit));
         }
     }
 
+    @Override
     public void accept(View operationControllerVisitor) {
         operationControllerVisitor.visit(this);
     }
@@ -43,7 +44,7 @@ public class StartController extends OperationController {
         createTableauPiles();
         createFoundations();
         this.setState(State.IN_GAME);
-        
+
     }
 
 }

@@ -102,16 +102,6 @@ public class Game {
         return cards==Suit.values().length* CardValue.values().length;
     }
     
-    public boolean isGameQuit() {
-        boolean finalized=true;
-        for (TableauPiles tableauPile: tableauPiles){
-            if (!tableauPile.isEmpty()){
-                finalized=false;
-            }
-        }
-        return finalized && deck.isEmpty() && waste.isEmpty();
-    }
-    
     public void end(){
         deck.clear();
         waste.clear();

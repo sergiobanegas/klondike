@@ -3,6 +3,7 @@ package es.upm.miw.iwvg.klondike.controllers;
 import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.TableauPiles;
+import es.upm.miw.iwvg.klondike.views.MoveView;
 
 public class FoundationToTableauController extends MoveController {
 
@@ -58,6 +59,11 @@ public class FoundationToTableauController extends MoveController {
 
     public void setNumFoundation(int numFoundation) {
         this.numFoundation = numFoundation;
+    }
+    
+    @Override
+    public void acceptMove(MoveView view) {
+        view.visit(this);  
     }
 
 }

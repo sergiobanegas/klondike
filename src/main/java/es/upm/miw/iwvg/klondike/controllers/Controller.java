@@ -28,9 +28,6 @@ public abstract class Controller {
 	public void put(Card card, CardStack target) {
 		assert target != null;
 		game.put(card, target);
-		if (game.isGameFinalized()) {
-			game.setState(State.FINAL);
-		}
 	}
 	
 	public void remove(CardStack cards) {
@@ -48,9 +45,5 @@ public abstract class Controller {
 	public boolean isGameFinalized() {
 		return game.isGameFinalized();
 	}	
-	
-	public boolean isGameQuit() {
-        return game.isGameQuit();
-    }
 	
 }

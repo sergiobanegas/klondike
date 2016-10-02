@@ -2,19 +2,14 @@ package es.upm.miw.iwvg.klondike.controllers;
 
 import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Game;
-import es.upm.miw.iwvg.klondike.views.ControllerInterface;
+import es.upm.miw.iwvg.klondike.views.MoveView;
 
-public class DeckToWasteController extends MoveController implements ControllerInterface {
+public class DeckToWasteController extends MoveController {
 
     private static final int MAX_CARDS_DISCARD = 3;
 
     public DeckToWasteController(Game game) {
         super(game);
-    }
-
-    @Override
-    public void accept(View operationControllerVisitor) {
-        operationControllerVisitor.visit(this);
     }
 
     @Override
@@ -38,6 +33,16 @@ public class DeckToWasteController extends MoveController implements ControllerI
             return Error.DECK_EMPTY;
         }
         return null;
+    }
+
+    @Override
+    public void accept(View view) {
+        view.visit(this);
+    }
+    
+    @Override
+    public void acceptMove(MoveView view) {
+        view.visit(this);
     }
 
 }
