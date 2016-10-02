@@ -12,6 +12,7 @@ public class WasteToTableauView {
             io.writeln("ERROR!!! El número de la escalera debe ser entre 1 y 7 inclusives");
             numTableau = io.readInt("¿A qué escalera? [1-7]:");
         }
-        controller.control(numTableau - 1);
+        controller.setNumTableau(numTableau-1);
+        controller.control();
     }
 }

@@ -6,6 +6,8 @@ import es.upm.miw.iwvg.klondike.models.TableauPiles;
 
 public class FoundationToTableauController extends MoveController {
 
+    private int numTableau, numFoundation;
+
     public FoundationToTableauController(Game game) {
         super(game);
     }
@@ -15,26 +17,21 @@ public class FoundationToTableauController extends MoveController {
         operationControllerVisitor.visit(this);
     }
 
-    public void control(int numFoundation, int numTableau) {
+    @Override
+    public void control() {
         TableauPiles tableau = game.getTableauPile(numTableau);
         if (checkFaceUpCard(tableau) != null) {
             System.out.println("ERROR!!! La escalera no tiene cartas descubiertas");
         }
-        if (validateMove(numFoundation, numTableau) != null) {
+        if (validateMove() != null) {
             System.out.println("ERROR!!! Movimiento no válido");
         } else {
             game.getTableauPile(numTableau).addCard(game.getFoundation(numFoundation).popCard());
         }
     }
 
-    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
-        if (tableauOrigin.hasFaceUpCards()) {
-            return null;
-        }
-        return Error.FLIPCARD_ERROR;
-    }
-
-    public Error validateMove(int numFoundation, int numTableau) {
+    @Override
+    public Error validateMove() {
         TableauPiles tableau = game.getTableauPile(numTableau);
         if (tableau.isEmpty()) {
             if (game.getFoundation(numFoundation).getLastCard().getValue().getValue() == "k") {
@@ -46,6 +43,21 @@ public class FoundationToTableauController extends MoveController {
             return Error.NOT_VALID_MOVE;
         }
         return null;
+    }
+
+    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
+        if (tableauOrigin.hasFaceUpCards()) {
+            return null;
+        }
+        return Error.FLIPCARD_ERROR;
+    }
+
+    public void setNumTableau(int numTableau) {
+        this.numTableau = numTableau;
+    }
+
+    public void setNumFoundation(int numFoundation) {
+        this.numFoundation = numFoundation;
     }
 
 }

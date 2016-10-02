@@ -9,6 +9,8 @@ import es.upm.miw.iwvg.klondike.models.TableauPiles;
 
 public class TableauToTableauController extends MoveController {
 
+    private int numTableauTarget, numTableauOrigin, numCards;
+
     public TableauToTableauController(Game game) {
         super(game);
     }
@@ -18,14 +20,15 @@ public class TableauToTableauController extends MoveController {
         operationControllerVisitor.visit(this);
     }
 
-    public void control(int numTableauOrigin, int numCards, int numTableauTarget) {
+    @Override
+    public void control() {
         TableauPiles tableauOrigin = game.getTableauPile(numTableauOrigin);
         TableauPiles tableauTarget = game.getTableauPile(numTableauTarget);
         if (checkFaceUpCard(tableauOrigin) != null) {
             System.out.println("ERROR!!! La escalera origen no tiene cartas descubiertas");
         } else if (checkFaceUpCard(tableauTarget) != null) {
             System.out.println("ERROR!!! La escalera destino no tiene cartas descubiertas");
-        } else if (validateMove(numTableauOrigin, numCards, numTableauTarget) != null) {
+        } else if (validateMove() != null) {
             System.out.println("ERROR!!! Movimiento no válido");
         } else {
             Stack<Card> stackAux = new Stack<Card>();
@@ -38,14 +41,8 @@ public class TableauToTableauController extends MoveController {
         }
     }
 
-    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
-        if (tableauOrigin.hasFaceUpCards()) {
-            return null;
-        }
-        return Error.FLIPCARD_ERROR;
-    }
-
-    public Error validateMove(int numTableauOrigin, int numCards, int numTableauTarget) {
+    @Override
+    public Error validateMove() {
         TableauPiles tableauOrigin = game.getTableauPile(numTableauOrigin);
         TableauPiles tableauTarget = game.getTableauPile(numTableauTarget);
         if (tableauTarget.isEmpty()) {
@@ -61,6 +58,25 @@ public class TableauToTableauController extends MoveController {
             }
         }
         return null;
+    }
+
+    public void setNumTableauOrigin(int numTableauOrigin) {
+        this.numTableauOrigin = numTableauOrigin;
+    }
+
+    public void setNumTableauTarget(int numTableauTarget) {
+        this.numTableauTarget = numTableauTarget;
+    }
+
+    public void setNumCards(int numCards) {
+        this.numCards = numCards;
+    }
+
+    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
+        if (tableauOrigin.hasFaceUpCards()) {
+            return null;
+        }
+        return Error.FLIPCARD_ERROR;
     }
 
 }

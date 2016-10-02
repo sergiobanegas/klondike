@@ -4,7 +4,7 @@ import es.upm.miw.iwvg.klondike.controllers.StartController;
 
 public class StartView {
 
-	public void start(StartController startController){
-	    startController.start();
+	public void interact(StartController startController){
+	    startController.control();
 	}
 }

@@ -14,6 +14,8 @@ public class Game {
     private Waste waste;
 
     private State state;
+    
+    private Option option;
 
     public Game() {
         state = State.INITIAL;
@@ -35,6 +37,13 @@ public class Game {
 
     public void addFoundation(Foundation foundation) {
         this.foundations.add(foundation);
+    }
+    
+    public Option getOption() {
+        return option;
+    }
+    public void setOption(Option option) {
+        this.option = option;
     }
 
     public List<Foundation> getFoundations() {

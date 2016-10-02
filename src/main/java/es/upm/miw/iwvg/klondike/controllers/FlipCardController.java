@@ -6,6 +6,8 @@ import es.upm.miw.iwvg.klondike.models.TableauPiles;
 
 public class FlipCardController extends MoveController {
 
+    private int numTableau;
+
     public FlipCardController(Game game) {
         super(game);
     }
@@ -15,22 +17,28 @@ public class FlipCardController extends MoveController {
         operationControllerVisitor.visit(this);
     }
 
-    public void control(int numTableau) {
-        TableauPiles tableau=game.getTableauPile(numTableau);
-        if (validateMove(numTableau) != null) {
+    @Override
+    public void control() {
+        TableauPiles tableau = game.getTableauPile(numTableau);
+        if (validateMove() != null) {
             System.out.println("ERROR!!! No se puede voltear una carta descubierta");
-        } else if (tableau.isEmpty()){
+        } else if (tableau.isEmpty()) {
             System.out.println("ERROR!!! La escalera está vacía");
-        }else{
+        } else {
             game.getTableauPile(numTableau).flipCard();
         }
     }
 
-    public Error validateMove(int numTableau) {
+    @Override
+    public Error validateMove() {
         if (game.getTableauPile(numTableau).getCardsFaceUp().isEmpty()) {
             return null;
         }
         return Error.FLIPCARD_ERROR;
+    }
+
+    public void setNumTableau(int numTableau) {
+        this.numTableau = numTableau;
     }
 
 }

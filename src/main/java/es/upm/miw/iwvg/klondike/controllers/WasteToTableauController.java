@@ -6,6 +6,8 @@ import es.upm.miw.iwvg.klondike.models.TableauPiles;
 
 public class WasteToTableauController extends MoveController {
 
+    private int numTableau;
+
     public WasteToTableauController(Game game) {
         super(game);
     }
@@ -15,25 +17,20 @@ public class WasteToTableauController extends MoveController {
         operationControllerVisitor.visit(this);
     }
 
-    public void control(int numTableau) {
+    @Override
+    public void control() {
         TableauPiles tableau = game.getTableauPile(numTableau);
         if (checkFaceUpCard(tableau) != null) {
             System.out.println("ERROR!!! La escalera no tiene cartas descubiertas");
-        } else if (validateMove(numTableau) != null) {
+        } else if (validateMove() != null) {
             System.out.println("ERROR!!! Movimiento no válido");
         } else {
             game.getTableauPile(numTableau).addCard(game.getWaste().popCard());
         }
     }
 
-    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
-        if (tableauOrigin.hasFaceUpCards()) {
-            return null;
-        }
-        return Error.FLIPCARD_ERROR;
-    }
-
-    public Error validateMove(int numTableau) {
+    @Override
+    public Error validateMove() {
         TableauPiles tableau = game.getTableauPile(numTableau);
         if (tableau.isEmpty()) {
             if (game.getWaste().getLastCard().getValue().getValue() == "k") {
@@ -45,6 +42,17 @@ public class WasteToTableauController extends MoveController {
             return Error.NOT_VALID_MOVE;
         }
         return null;
+    }
+
+    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
+        if (tableauOrigin.hasFaceUpCards()) {
+            return null;
+        }
+        return Error.FLIPCARD_ERROR;
+    }
+
+    public void setNumTableau(int numTableau) {
+        this.numTableau = numTableau;
     }
 
 }
