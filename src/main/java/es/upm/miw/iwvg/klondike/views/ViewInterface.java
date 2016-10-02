@@ -4,6 +4,6 @@ import es.upm.miw.iwvg.klondike.controllers.OperationController;
 
 public interface ViewInterface {
 
-    boolean interact(OperationController controller);
+    void interact(OperationController controller);
 
 }
