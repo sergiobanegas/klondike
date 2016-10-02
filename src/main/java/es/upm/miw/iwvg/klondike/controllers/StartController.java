@@ -15,14 +15,6 @@ public class StartController extends OperationController {
         super(game);
     }
 
-    public void start() {
-        game.setDeck(new Deck());
-        game.setWaste(new Waste());
-        createTableauPiles();
-        createFoundations();
-        this.setState(State.IN_GAME);
-    }
-
     private void createTableauPiles() {
         for (int i = 0; i < TableauPiles.NUMBER_OF_PILES; i++) {
             TableauPiles tableau = new TableauPiles();
@@ -40,9 +32,18 @@ public class StartController extends OperationController {
         }
     }
 
-    @Override
     public void accept(View operationControllerVisitor) {
         operationControllerVisitor.visit(this);
+    }
+
+    @Override
+    public void control() {
+        game.setDeck(new Deck());
+        game.setWaste(new Waste());
+        createTableauPiles();
+        createFoundations();
+        this.setState(State.IN_GAME);
+        
     }
 
 }

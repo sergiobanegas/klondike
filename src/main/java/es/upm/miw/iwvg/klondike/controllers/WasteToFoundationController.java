@@ -5,6 +5,8 @@ import es.upm.miw.iwvg.klondike.models.Game;
 
 public class WasteToFoundationController extends MoveController {
 
+    private int numFoundation;
+
     public WasteToFoundationController(Game game) {
         super(game);
     }
@@ -14,15 +16,17 @@ public class WasteToFoundationController extends MoveController {
         operationControllerVisitor.visit(this);
     }
 
-    public void control(int numFoundation) {
-        if (validateMove(numFoundation) != null) {
+    @Override
+    public void control() {
+        if (validateMove() != null) {
             System.out.println("ERROR!!! Movimiento no válido");
         } else {
             game.getFoundation(numFoundation).addCard(game.getWaste().popCard());
         }
     }
 
-    public Error validateMove(int numFoundation) {
+    @Override
+    public Error validateMove() {
         if (game.getFoundation(numFoundation).sameSuit(game.getWaste().getLastCard())) {
             if (game.getFoundation(numFoundation).isEmpty()) {
                 if (game.getWaste().getLastCard().getValue().getValue() == "A") {
@@ -35,6 +39,10 @@ public class WasteToFoundationController extends MoveController {
             return null;
         }
         return Error.INVALID_SUIT;
+    }
+
+    public void setNumFoundation(int numFoundation) {
+        this.numFoundation = numFoundation;
     }
 
 }

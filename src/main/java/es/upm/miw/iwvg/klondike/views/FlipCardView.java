@@ -7,11 +7,12 @@ public class FlipCardView {
 
     public void interact(FlipCardController controller) {
         IO io = new IO();
-        int numTableauTarget = io.readInt("¿En qué escalera? [1-7]:");
-        while (numTableauTarget<1 || numTableauTarget>7){
+        int numTableau = io.readInt("¿En qué escalera? [1-7]:");
+        while (numTableau < 1 || numTableau > 7) {
             io.writeln("ERROR!!! El número de la escalera debe ser entre 1 y 7 inclusives");
-            numTableauTarget = io.readInt("¿En qué escalera? [1-7]:");
+            numTableau = io.readInt("¿En qué escalera? [1-7]:");
         }
-        controller.control(numTableauTarget - 1);
+        controller.setNumTableau(numTableau - 1);
+        controller.control();
     }
 }

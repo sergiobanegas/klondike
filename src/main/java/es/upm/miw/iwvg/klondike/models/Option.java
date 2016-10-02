@@ -10,13 +10,10 @@ import es.upm.miw.iwvg.klondike.controllers.TableauToTableauController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToDeckController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToFoundationController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToTableauController;
-import es.upm.miw.iwvg.klondike.views.ViewInterface;
 
 public class Option {
 
     private OperationController optionControllerInterface;
-
-    private ViewInterface viewInterface;
 
     public Option(int option, Game game) {
         switch (option) {
@@ -53,8 +50,5 @@ public class Option {
     public OperationController getController() {
         return optionControllerInterface;
     }
-
-    public void control() {
-        viewInterface.render();
-    }
+    
 }

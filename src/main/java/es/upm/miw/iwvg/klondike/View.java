@@ -72,7 +72,7 @@ public class View {
     }
 
     public void visit(StartController startController) {
-        startView.start(startController);
+        startView.interact(startController);
     }
 
     public void visit(DeckToWasteController deckToWasteController) {

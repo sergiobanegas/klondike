@@ -10,5 +10,6 @@ public abstract class OperationController extends Controller {
     }
 
     public abstract void accept(View view);
+    public abstract void control();
 
 }

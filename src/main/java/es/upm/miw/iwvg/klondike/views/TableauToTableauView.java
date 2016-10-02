@@ -18,6 +18,9 @@ public class TableauToTableauView {
             io.writeln("ERROR!!! El número de la escalera debe ser entre 1 y 7 inclusives");
             numTableauTarget = io.readInt("¿A qué escalera? [1-7]:");
         }
-        controller.control(numTableauOrigin - 1, numCards, numTableauTarget - 1);
+        controller.setNumTableauOrigin(numTableauOrigin - 1);
+        controller.setNumCards(numCards);
+        controller.setNumTableauTarget(numTableauTarget - 1);
+        controller.control();
     }
 }

@@ -2,6 +2,6 @@ package es.upm.miw.iwvg.klondike.views;
 
 public interface ViewInterface {
 
-    public void render();
+    public void interact(ControllerInterface controller);
 
 }
