@@ -15,34 +15,34 @@ public class Option {
 
     private OperationController optionControllerInterface;
 
-    public Option(int option, Game game) {
+    public Option(int option) {
         switch (option) {
         case 1:
-            optionControllerInterface = new DeckToWasteController(game);
+            optionControllerInterface = new DeckToWasteController();
             break;
         case 2:
-            optionControllerInterface = new WasteToDeckController(game);
+            optionControllerInterface = new WasteToDeckController();
             break;
         case 3:
-            optionControllerInterface = new WasteToFoundationController(game);
+            optionControllerInterface = new WasteToFoundationController();
             break;
         case 4:
-            optionControllerInterface = new WasteToTableauController(game);
+            optionControllerInterface = new WasteToTableauController();
             break;
         case 5:
-            optionControllerInterface = new TableauToFoundationController(game);
+            optionControllerInterface = new TableauToFoundationController();
             break;
         case 6:
-            optionControllerInterface = new TableauToTableauController(game);
+            optionControllerInterface = new TableauToTableauController();
             break;
         case 7:
-            optionControllerInterface = new FoundationToTableauController(game);
+            optionControllerInterface = new FoundationToTableauController();
             break;
         case 8:
-            optionControllerInterface = new FlipCardController(game);
+            optionControllerInterface = new FlipCardController();
             break;
         case 9:
-            optionControllerInterface = new ExitController(game);
+            optionControllerInterface = new ExitController();
             break;
         }
     }

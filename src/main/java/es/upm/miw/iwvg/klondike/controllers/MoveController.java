@@ -4,15 +4,14 @@ import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Card;
 import es.upm.miw.iwvg.klondike.models.CardStack;
 import es.upm.miw.iwvg.klondike.models.Foundation;
-import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.State;
 import es.upm.miw.iwvg.klondike.models.TableauPiles;
 import es.upm.miw.iwvg.klondike.views.MoveView;
 
 public abstract class MoveController extends OperationController {
 
-    protected MoveController(Game game) {
-        super(game);
+    protected MoveController() {
+        super();
     }
 
     public void control() {

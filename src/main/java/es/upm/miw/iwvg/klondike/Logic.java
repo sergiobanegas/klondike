@@ -4,27 +4,27 @@ import es.upm.miw.iwvg.klondike.controllers.FinalizedController;
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
 import es.upm.miw.iwvg.klondike.controllers.StartController;
 import es.upm.miw.iwvg.klondike.models.Game;
-import es.upm.miw.iwvg.klondike.views.Menu;
+import es.upm.miw.iwvg.klondike.views.MenuView;
 
 public class Logic {
 
     private Game game;
 
-    private Menu menu;
+    private MenuView menu;
 
     public Logic() {
-        game = new Game();
-        menu = new Menu(game);
+        game = Game.getInstance();
+        menu = new MenuView(game);
     }
 
     public OperationController getOperationController() {
         switch (game.getState()) {
         case INITIAL:
-            return new StartController(game);
+            return new StartController();
         case IN_GAME:
-            return menu.render();
+            return menu.interact();
         case FINALIZED:
-            return new FinalizedController(game);
+            return new FinalizedController();
         default:
             return null;
         }

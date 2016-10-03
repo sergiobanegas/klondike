@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Game {
 
+    private static Game game;
+    
     private List<Foundation> foundations;
 
     private List<TableauPiles> tableauPiles;
@@ -19,6 +21,13 @@ public class Game {
         state = State.INITIAL;
         this.foundations = new ArrayList<Foundation>();
         this.tableauPiles = new ArrayList<TableauPiles>();
+    }
+    
+    public static Game getInstance() {
+        if (game == null){
+            game=new Game();
+        }
+        return game;
     }
 
     public State getState() {

@@ -4,7 +4,6 @@ import java.util.Stack;
 
 import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Card;
-import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.TableauPiles;
 import es.upm.miw.iwvg.klondike.views.MoveView;
 
@@ -12,8 +11,8 @@ public class TableauToTableauController extends MoveController {
 
     private int numTableauTarget, numTableauOrigin, numCards;
 
-    public TableauToTableauController(Game game) {
-        super(game);
+    public TableauToTableauController() {
+        super();
     }
 
     @Override

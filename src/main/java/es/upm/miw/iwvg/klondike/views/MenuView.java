@@ -5,12 +5,12 @@ import es.upm.miw.iwvg.klondike.controllers.OptionController;
 import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.utils.IO;
 
-public class Menu {
+public class MenuView {
     private Game game;
 
     private OptionController optionController;
 
-    public Menu(Game game) {
+    public MenuView(Game game) {
         this.game = game;
         this.optionController = new OptionController(game);
     }
@@ -60,7 +60,7 @@ public class Menu {
         io.writeln("9. Salir");
     }
 
-    public OperationController render() {
+    public OperationController interact() {
         showStatus();
         showMenu();
         IO io = new IO();
