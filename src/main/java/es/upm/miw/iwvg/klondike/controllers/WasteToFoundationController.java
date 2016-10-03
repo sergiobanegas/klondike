@@ -19,12 +19,14 @@ public class WasteToFoundationController extends MoveController {
 
     @Override
     public void control() {
-        if (validateMove() != null) {
-            System.out.println("ERROR!!! Movimiento no válido");
+        if (isWasteEmpty()) {
+            System.out.println(ErrorEnum.WASTE_EMPTY);
+        } else if (validateMove() != null) {
+            System.out.println(validateMove());
         } else {
             getFoundation(numFoundation).addCard(popLastCardWaste());
+            super.control();
         }
-        super.control();
     }
 
     @Override
@@ -34,13 +36,13 @@ public class WasteToFoundationController extends MoveController {
                 if (isCardValue(getLastCardWaste(), "A")) {
                     return null;
                 }
-                return Error.NOT_VALID_MOVE;
+                return new Error(ErrorEnum.NOT_VALID_MOVE);
             } else if (!getLastCard(getFoundation(numFoundation)).validAboveFoundation(getLastCardWaste())) {
-                return Error.INVALID_CARD;
+                return new Error(getLastCardWaste(), getLastCard(getFoundation(numFoundation)));
             }
             return null;
         }
-        return Error.INVALID_SUIT;
+        return new Error(getLastCardWaste(), getLastCard(getFoundation(numFoundation)));
     }
 
     public void setNumFoundation(int numFoundation) {

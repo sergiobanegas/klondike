@@ -26,11 +26,11 @@ public class TableauToTableauController extends MoveController {
         TableauPiles tableauOrigin = getTableauPile(numTableauOrigin);
         TableauPiles tableauTarget = getTableauPile(numTableauTarget);
         if (checkFaceUpCard(tableauOrigin) != null) {
-            System.out.println("ERROR!!! La escalera origen no tiene cartas descubiertas");
+            System.out.println(checkFaceUpCard(tableauOrigin));
         } else if (checkFaceUpCard(tableauTarget) != null) {
-            System.out.println("ERROR!!! La escalera destino no tiene cartas descubiertas");
+            System.out.println(checkFaceUpCard(tableauTarget));
         } else if (validateMove() != null) {
-            System.out.println("ERROR!!! Movimiento no válido");
+            System.out.println(validateMove());
         } else {
             Stack<Card> stackAux = new Stack<Card>();
             for (int i = 0; i < numCards; i++) {
@@ -50,13 +50,13 @@ public class TableauToTableauController extends MoveController {
             if (isCardValue(tableauOrigin.getFaceUpCard(numCards - 1), "K")) {
                 return null;
             } else {
-                return Error.NOT_VALID_MOVE;
+                return new Error(ErrorEnum.NOT_VALID_MOVE);
             }
         } else {
             if (tableauOrigin.getFaceUpCardsNumber() < numCards) {
-                return Error.NOT_VALID_MOVE;
+                return new Error(ErrorEnum.NOT_ENOUGH_CARDS);
             } else if (!getLastCardTableauPile(tableauTarget).validAboveTableau(tableauOrigin.getFaceUpCard(numCards))) {
-                return Error.NOT_VALID_MOVE;
+                return new Error(tableauOrigin.getFaceUpCard(numCards), getLastCardTableauPile(tableauTarget));
             }
         }
         return null;
@@ -74,11 +74,11 @@ public class TableauToTableauController extends MoveController {
         this.numCards = numCards;
     }
 
-    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
-        if (tableauOrigin.hasFaceUpCards()) {
+    public Error checkFaceUpCard(TableauPiles tableau) {
+        if (tableau.hasFaceUpCards()) {
             return null;
         }
-        return Error.FLIPCARD_ERROR;
+        return new Error(ErrorEnum.NO_FACEUP_CARDS);
     }
 
     @Override

@@ -18,8 +18,9 @@ public class WasteToDeckController extends MoveController implements ControllerI
 
     @Override
     public void control() {
-        if (validateMove() != null) {
-            System.out.println("ERROR!!! La baraja está vacía");
+        Error error = validateMove();
+        if (error != null) {
+            System.out.println(error);
         }
         while (!game.isWasteEmpty()) {
             game.addCardDeck(popLastCardWaste());
@@ -28,8 +29,8 @@ public class WasteToDeckController extends MoveController implements ControllerI
 
     @Override
     public Error validateMove() {
-        if (game.isWasteEmpty()) {
-            return Error.WASTE_EMPTY;
+        if (isWasteEmpty()) {
+            return new Error(ErrorEnum.WASTE_EMPTY);
         }
         return null;
     }
