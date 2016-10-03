@@ -10,11 +10,11 @@ public class WasteTest {
     public void toStringTest() {
         Waste discard = new Waste();
         assertEquals("<vacío>", discard.toString());
-        Card card1 = new Card(CardValue.KING, Suit.PIKES);
+        Card card1 = new Card(CardValue.KING, Suit.PICAS);
         discard.addCard(card1);
         assertEquals(card1.toString(), discard.toString());
-        Card card2 = new Card(CardValue.THREE, Suit.HEARTS);
-        Card card3 = new Card(CardValue.SIX, Suit.CLOVERS);
+        Card card2 = new Card(CardValue.THREE, Suit.CORAZONES);
+        Card card3 = new Card(CardValue.SIX, Suit.TREBOLES);
         discard.addCard(card2);
         discard.addCard(card3);
         assertEquals(card1.toString() + card2.toString() + card3.toString(), discard.toString());

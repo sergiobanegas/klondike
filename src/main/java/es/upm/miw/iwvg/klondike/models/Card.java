@@ -10,7 +10,7 @@ public class Card {
     public Card(CardValue value, Suit suit) {
         this.value = value;
         this.suit = suit;
-        if (suit.equals(Suit.HEARTS) || suit.equals(Suit.TILES)) {
+        if (suit.equals(Suit.CORAZONES) || suit.equals(Suit.DIAMANTES)) {
             this.color = Color.RED;
         } else {
             this.color = Color.BLACK;
