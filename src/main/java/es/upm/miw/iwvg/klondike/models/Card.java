@@ -29,6 +29,10 @@ public class Card {
         return color;
     }
 
+    public boolean hasValue(String value) {
+        return this.value.getValue() == value;
+    }
+
     public boolean isSameColor(Card card) {
         return card.getColor().getValue() == color.getValue();
     }

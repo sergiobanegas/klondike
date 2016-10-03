@@ -27,7 +27,7 @@ public class FoundationToTableauController extends MoveController {
         } else if (validateMove() != null) {
             System.out.println(validateMove());
         } else {
-            tableau.addCardFaceUp(game.getFoundation(numFoundation).popCard());
+            tableau.addCardFaceUp(game.popCardFoundation(numFoundation));
         }
     }
 

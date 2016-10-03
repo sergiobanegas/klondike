@@ -3,10 +3,10 @@ package es.upm.miw.iwvg.klondike.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game implements GameInterface{
+public class Game implements GameInterface {
 
     private static Game game;
-    
+
     private List<Foundation> foundations;
 
     private List<TableauPiles> tableauPiles;
@@ -22,10 +22,10 @@ public class Game implements GameInterface{
         this.foundations = new ArrayList<Foundation>();
         this.tableauPiles = new ArrayList<TableauPiles>();
     }
-    
+
     public static Game getInstance() {
-        if (game == null){
-            game=new Game();
+        if (game == null) {
+            game = new Game();
         }
         return game;
     }
@@ -69,6 +69,10 @@ public class Game implements GameInterface{
     public Card popCardDeck() {
         return deck.popCard();
     }
+    
+    public Card popCardFoundation(int position) {
+        return foundations.get(position).popCard();
+    }
 
     public boolean isWasteEmpty() {
         return waste.isEmpty();
@@ -76,6 +80,10 @@ public class Game implements GameInterface{
 
     public boolean isDeckEmpty() {
         return deck.isEmpty();
+    }
+
+    public boolean hasTableauFaceUpCards(int position) {
+        return tableauPiles.get(position).isEmpty();
     }
 
     public boolean isFoundationEmpty(int position) {
