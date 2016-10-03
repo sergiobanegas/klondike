@@ -9,18 +9,18 @@ public class SuitTest {
     
     @Test
     public void getValueTest() {
-        assertEquals("c", Suit.CLOVERS.getValue());
-        assertEquals("t", Suit.TILES.getValue());
-        assertEquals("p", Suit.PIKES.getValue());
-        assertEquals("h", Suit.HEARTS.getValue());
+        assertEquals("t", Suit.TREBOLES.getValue());
+        assertEquals("d", Suit.DIAMANTES.getValue());
+        assertEquals("p", Suit.PICAS.getValue());
+        assertEquals("c", Suit.CORAZONES.getValue());
     }
 
     @Test
     public void positionTest() {
-        assertEquals(1, Suit.HEARTS.position());
-        assertEquals(2, Suit.TILES.position());
-        assertEquals(3, Suit.CLOVERS.position());
-        assertEquals(4, Suit.PIKES.position());
+        assertEquals(1, Suit.CORAZONES.position());
+        assertEquals(2, Suit.DIAMANTES.position());
+        assertEquals(3, Suit.TREBOLES.position());
+        assertEquals(4, Suit.PICAS.position());
     }
     
 }

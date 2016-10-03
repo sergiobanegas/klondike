@@ -2,7 +2,7 @@ package es.upm.miw.iwvg.klondike.models;
 
 public enum Suit {
 
-    HEARTS("h"), TILES("t"), CLOVERS("c"), PIKES("p");
+    CORAZONES("c"), DIAMANTES("d"), TREBOLES("t"), PICAS("p");
 
     private String value;
 

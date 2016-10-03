@@ -11,15 +11,15 @@ public class FoundationTest {
 
     @Before
     public void before() {
-        foundation = new Foundation(Suit.CLOVERS);
+        foundation = new Foundation(Suit.TREBOLES);
     }
 
     @Test
     public void toStringTest() {
         assertEquals("<vacío>", foundation.toString());
-        foundation.addCard(new Card(CardValue.KING, Suit.CLOVERS));
-        foundation.addCard(new Card(CardValue.NINE, Suit.CLOVERS));
-        Card lastCard = new Card(CardValue.ACE, Suit.CLOVERS);
+        foundation.addCard(new Card(CardValue.KING, Suit.TREBOLES));
+        foundation.addCard(new Card(CardValue.NINE, Suit.TREBOLES));
+        Card lastCard = new Card(CardValue.ACE, Suit.TREBOLES);
         foundation.addCard(lastCard);
         assertEquals(lastCard.toString(), foundation.toString());
     }

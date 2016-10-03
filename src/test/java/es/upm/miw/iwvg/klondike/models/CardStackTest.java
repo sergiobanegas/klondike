@@ -15,9 +15,9 @@ public class CardStackTest {
     @Before
     public void before() {
         cards = new CardStack();
-        cards.addCard(new Card(CardValue.TWO, Suit.CLOVERS));
-        cards.addCard(new Card(CardValue.ACE, Suit.HEARTS));
-        cards.addCard(new Card(CardValue.QUEEN, Suit.TILES));
+        cards.addCard(new Card(CardValue.TWO, Suit.TREBOLES));
+        cards.addCard(new Card(CardValue.ACE, Suit.CORAZONES));
+        cards.addCard(new Card(CardValue.QUEEN, Suit.DIAMANTES));
     }
 
     @Test
@@ -30,13 +30,13 @@ public class CardStackTest {
     @Test
     public void addCardTest() {
         assertEquals(3, cards.getCards().size());
-        cards.addCard(new Card(CardValue.QUEEN, Suit.TILES));
+        cards.addCard(new Card(CardValue.QUEEN, Suit.DIAMANTES));
         assertEquals(4, cards.getCards().size());
     }
 
     @Test
     public void getCardTest() {
-        assertEquals(new Card(CardValue.QUEEN, Suit.TILES).toString(), cards.getLastCard().toString());
+        assertEquals(new Card(CardValue.QUEEN, Suit.DIAMANTES).toString(), cards.getLastCard().toString());
     }
 
     @Test
@@ -53,9 +53,9 @@ public class CardStackTest {
     @Test
     public void toStringCardListTest() {
         List<Card> cardsAux = new ArrayList<Card>();
-        cardsAux.add(new Card(CardValue.TWO, Suit.TILES));
-        cardsAux.add(new Card(CardValue.ACE, Suit.HEARTS));
-        cardsAux.add(new Card(CardValue.QUEEN, Suit.PIKES));
+        cardsAux.add(new Card(CardValue.TWO, Suit.DIAMANTES));
+        cardsAux.add(new Card(CardValue.ACE, Suit.CORAZONES));
+        cardsAux.add(new Card(CardValue.QUEEN, Suit.PICAS));
         assertEquals(cardsAux.get(0).toString() + cardsAux.get(1).toString() + cardsAux.get(2).toString(),
                 cards.toStringCardList(cardsAux));
     }
