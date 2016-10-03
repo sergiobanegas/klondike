@@ -15,8 +15,6 @@ public class Game {
 
     private State state;
 
-    private Option option;
-
     public Game() {
         state = State.INITIAL;
         this.foundations = new ArrayList<Foundation>();
@@ -31,36 +29,44 @@ public class Game {
         return tableauPiles.get(position);
     }
 
-    public List<TableauPiles> getTableauPiles() {
-        return tableauPiles;
-    }
-
     public void addFoundation(Foundation foundation) {
         this.foundations.add(foundation);
     }
 
-    public Option getOption() {
-        return option;
-    }
-
-    public void setOption(Option option) {
-        this.option = option;
-    }
-
-    public List<Foundation> getFoundations() {
-        return foundations;
+    public void addTableauPile(TableauPiles tableau) {
+        this.tableauPiles.add(tableau);
     }
 
     public Foundation getFoundation(int position) {
         return foundations.get(position);
     }
 
-    public Waste getWaste() {
-        return waste;
+    public void addCardWaste(Card card) {
+        waste.addCard(card);
     }
 
-    public Deck getDeck() {
-        return deck;
+    public void addCardDeck(Card card) {
+        deck.addCard(card);
+    }
+
+    public Card getLastCardWaste() {
+        return waste.getLastCard();
+    }
+
+    public Card popCardWaste() {
+        return waste.popCard();
+    }
+
+    public Card popCardDeck() {
+        return deck.popCard();
+    }
+
+    public boolean isWasteEmpty() {
+        return waste.isEmpty();
+    }
+
+    public boolean isDeckEmpty() {
+        return deck.isEmpty();
     }
 
     public void setDeck(Deck deck) {
@@ -71,28 +77,8 @@ public class Game {
         this.state = state;
     }
 
-    public void setFoundations(List<Foundation> foundations) {
-        this.foundations = foundations;
-    }
-
-    public void setTableauPiles(List<TableauPiles> tableauPiles) {
-        this.tableauPiles = tableauPiles;
-    }
-
     public void setWaste(Waste waste) {
         this.waste = waste;
-    }
-
-    public void put(Card card, CardStack target) {
-        target.getCards().add(card);
-    }
-
-    public void remove(CardStack target) {
-        target.removeCard();
-    }
-
-    public boolean validMove(Card card, CardStack target) {
-        return target.getLastCard().isNextCardValue(card);
     }
 
     public boolean isGameFinalized() {
@@ -101,6 +87,22 @@ public class Game {
             cards += foundation.getCards().size();
         }
         return cards == Suit.values().length * CardValue.values().length;
+    }
+
+    public String getDeckString() {
+        return deck.toString();
+    }
+
+    public String getWasteString() {
+        return waste.toString();
+    }
+
+    public String getFoundationString(int position) {
+        return getFoundation(position).toString();
+    }
+
+    public String getTableauString(int position) {
+        return getTableauPile(position).toString();
     }
 
     public void end() {

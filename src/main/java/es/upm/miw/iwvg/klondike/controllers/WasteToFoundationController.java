@@ -22,19 +22,20 @@ public class WasteToFoundationController extends MoveController {
         if (validateMove() != null) {
             System.out.println("ERROR!!! Movimiento no válido");
         } else {
-            game.getFoundation(numFoundation).addCard(game.getWaste().popCard());
+            getFoundation(numFoundation).addCard(popLastCardWaste());
         }
+        super.control();
     }
 
     @Override
     public Error validateMove() {
-        if (game.getFoundation(numFoundation).sameSuit(game.getWaste().getLastCard())) {
-            if (game.getFoundation(numFoundation).isEmpty()) {
-                if (game.getWaste().getLastCard().getValue().getValue() == "A") {
+        if (getFoundation(numFoundation).sameSuit(getLastCardWaste())) {
+            if (getFoundation(numFoundation).isEmpty()) {
+                if (isCardValue(getLastCardWaste(), "A")) {
                     return null;
                 }
                 return Error.NOT_VALID_MOVE;
-            } else if (!game.getFoundation(numFoundation).getLastCard().validAboveFoundation(game.getWaste().getLastCard())) {
+            } else if (!getLastCard(getFoundation(numFoundation)).validAboveFoundation(getLastCardWaste())) {
                 return Error.INVALID_CARD;
             }
             return null;

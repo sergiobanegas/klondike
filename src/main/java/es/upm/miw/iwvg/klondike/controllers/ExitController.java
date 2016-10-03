@@ -12,7 +12,7 @@ public class ExitController extends OperationController {
 
     public void control() {
         game.end();
-        game.setState(State.EXIT);
+        setState(State.EXIT);
     }
 
     @Override

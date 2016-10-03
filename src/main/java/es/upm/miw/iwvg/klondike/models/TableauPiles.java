@@ -15,10 +15,6 @@ public class TableauPiles {
         this.cardsFaceUp = new Stack<Card>();
     }
 
-    public TableauPiles(int length) {
-
-    }
-
     public boolean isEmpty() {
         return cardsFaceDown.isEmpty() && cardsFaceUp.isEmpty();
     }
@@ -36,12 +32,24 @@ public class TableauPiles {
         return cardsFaceUp.pop();
     }
 
-    public void addCard(Card card) {
+    public int getFaceUpCardsNumber() {
+        return cardsFaceUp.size();
+    }
+
+    public void addCardFaceUp(Card card) {
         cardsFaceUp.add(card);
+    }
+
+    public void addCardFaceDown(Card card) {
+        cardsFaceDown.add(card);
     }
 
     public Stack<Card> getCardsFaceDown() {
         return cardsFaceDown;
+    }
+
+    public Card getFaceUpCard(int position) {
+        return cardsFaceUp.get(cardsFaceUp.size() - position);
     }
 
     public boolean hasFaceUpCards() {
@@ -66,7 +74,6 @@ public class TableauPiles {
         if (cardsFaceDown.isEmpty() && cardsFaceUp.isEmpty()) {
             return "<vacío>";
         }
-
         String stringPileDown = "";
         for (int i = 0; i < cardsFaceDown.size(); i++) {
             stringPileDown += "[";
