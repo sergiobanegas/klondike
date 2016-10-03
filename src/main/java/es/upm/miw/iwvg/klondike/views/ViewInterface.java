@@ -1,9 +1,9 @@
 package es.upm.miw.iwvg.klondike.views;
 
-import es.upm.miw.iwvg.klondike.controllers.OperationController;
+import es.upm.miw.iwvg.klondike.controllers.ControllerInterface;
 
 public interface ViewInterface {
 
-    void interact(OperationController controller);
+    void interact(ControllerInterface controller);
 
 }

@@ -1,10 +1,10 @@
 package es.upm.miw.iwvg.klondike.views;
 
+import es.upm.miw.iwvg.klondike.controllers.ControllerInterface;
 import es.upm.miw.iwvg.klondike.controllers.DeckToWasteController;
 import es.upm.miw.iwvg.klondike.controllers.FlipCardController;
 import es.upm.miw.iwvg.klondike.controllers.FoundationToTableauController;
 import es.upm.miw.iwvg.klondike.controllers.MoveController;
-import es.upm.miw.iwvg.klondike.controllers.OperationController;
 import es.upm.miw.iwvg.klondike.controllers.TableauToFoundationController;
 import es.upm.miw.iwvg.klondike.controllers.TableauToTableauController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToDeckController;
@@ -41,7 +41,7 @@ public class MoveView implements ViewInterface {
     }
 
     @Override
-    public void interact(OperationController controller) {
+    public void interact(ControllerInterface controller) {
         MoveController moveController = (MoveController) controller;
         moveController.acceptMove(this);
     }
