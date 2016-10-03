@@ -2,17 +2,17 @@ package es.upm.miw.iwvg.klondike.views;
 
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
 import es.upm.miw.iwvg.klondike.controllers.OptionController;
-import es.upm.miw.iwvg.klondike.models.Game;
+import es.upm.miw.iwvg.klondike.models.GameInterface;
 import es.upm.miw.iwvg.klondike.utils.IO;
 
 public class MenuView {
-    private Game game;
+    private GameInterface game;
 
     private OptionController optionController;
 
-    public MenuView(Game game) {
+    public MenuView(GameInterface game) {
         this.game = game;
-        this.optionController = new OptionController(game);
+        this.optionController = new OptionController();
     }
 
     public void showStatus() {

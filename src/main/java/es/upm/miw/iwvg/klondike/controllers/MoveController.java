@@ -10,10 +10,6 @@ import es.upm.miw.iwvg.klondike.views.MoveView;
 
 public abstract class MoveController extends OperationController {
 
-    protected MoveController() {
-        super();
-    }
-
     public void control() {
         if (game.isGameFinalized()) {
             game.setState(State.FINALIZED);
