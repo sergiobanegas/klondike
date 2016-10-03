@@ -1,9 +1,9 @@
 package es.upm.miw.iwvg.klondike;
 
+import es.upm.miw.iwvg.klondike.controllers.ControllerInterface;
 import es.upm.miw.iwvg.klondike.controllers.ExitController;
 import es.upm.miw.iwvg.klondike.controllers.FinalizedController;
 import es.upm.miw.iwvg.klondike.controllers.MoveController;
-import es.upm.miw.iwvg.klondike.controllers.OperationController;
 import es.upm.miw.iwvg.klondike.controllers.StartController;
 import es.upm.miw.iwvg.klondike.views.ExitView;
 import es.upm.miw.iwvg.klondike.views.FinalizedView;
@@ -29,7 +29,7 @@ public class View implements ViewInterface {
     }
 
     @Override
-    public void interact(OperationController operationController) {
+    public void interact(ControllerInterface operationController) {
         assert operationController != null;
         operationController.accept(this);
     }
