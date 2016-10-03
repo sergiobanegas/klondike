@@ -21,10 +21,12 @@ public class WasteToTableauController extends MoveController {
     @Override
     public void control() {
         TableauPiles tableau = getTableauPile(numTableau);
-        if (checkFaceUpCard(tableau) != null) {
-            System.out.println("ERROR!!! La escalera no tiene cartas descubiertas");
+        if (isWasteEmpty()) {
+            System.out.println(ErrorEnum.WASTE_EMPTY);
+        } else if (checkFaceUpCard(tableau) != null) {
+            System.out.println(checkFaceUpCard(tableau));
         } else if (validateMove() != null) {
-            System.out.println("ERROR!!! Movimiento no válido");
+            System.out.println(validateMove());
         } else {
             tableau.addCardFaceUp(popLastCardWaste());
         }
@@ -37,10 +39,10 @@ public class WasteToTableauController extends MoveController {
             if (isCardValue(getLastCardWaste(), "K")) {
                 return null;
             } else {
-                return Error.NOT_VALID_MOVE;
+                return new Error(ErrorEnum.NOT_VALID_MOVE);
             }
         } else if (!getLastCardTableauPile(tableau).validAboveTableau(getLastCardWaste())) {
-            return Error.NOT_VALID_MOVE;
+            return new Error(getLastCardWaste(), getLastCardTableauPile(tableau));
         }
         return null;
     }
@@ -49,7 +51,7 @@ public class WasteToTableauController extends MoveController {
         if (tableauOrigin.hasFaceUpCards()) {
             return null;
         }
-        return Error.FLIPCARD_ERROR;
+        return new Error(ErrorEnum.FLIPCARD_ERROR);
     }
 
     public void setNumTableau(int numTableau) {

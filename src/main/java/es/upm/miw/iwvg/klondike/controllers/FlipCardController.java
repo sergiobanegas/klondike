@@ -21,10 +21,11 @@ public class FlipCardController extends MoveController {
     @Override
     public void control() {
         TableauPiles tableau = getTableauPile(numTableau);
-        if (validateMove() != null) {
-            System.out.println("ERROR!!! No se puede voltear una carta descubierta");
-        } else if (tableau.isEmpty()) {
-            System.out.println("ERROR!!! La escalera está vacía");
+        Error error = validateMove();
+        if (tableau.isEmpty()) {
+            System.out.println(new Error(ErrorEnum.TABLEAU_EMPTY));
+        } else if (validateMove() != null) {
+            System.out.println(error);
         } else {
             tableau.flipCard();
         }
@@ -32,10 +33,15 @@ public class FlipCardController extends MoveController {
 
     @Override
     public Error validateMove() {
-        if ((getTableauPile(numTableau).getCardsFaceUp().isEmpty())) {
-            return null;
+        if ((getTableauPile(numTableau).getCardsFaceUp().isEmpty())) {// FIXME
+            if (getTableauPile(numTableau).getCardsFaceDown().isEmpty()) {
+                return new Error(ErrorEnum.NO_FACEDOWN_CARDS);
+            } else {
+                return null;
+            }
+
         }
-        return Error.FLIPCARD_ERROR;
+        return new Error(ErrorEnum.EXISTS_FACEUP_CARDS);
     }
 
     public void setNumTableau(int numTableau) {

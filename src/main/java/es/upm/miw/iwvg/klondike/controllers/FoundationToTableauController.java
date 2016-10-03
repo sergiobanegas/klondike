@@ -21,11 +21,12 @@ public class FoundationToTableauController extends MoveController {
     @Override
     public void control() {
         TableauPiles tableau = getTableauPile(numTableau);
-        if (checkFaceUpCard(tableau) != null) {
-            System.out.println("ERROR!!! La escalera no tiene cartas descubiertas");
-        }
-        if (validateMove() != null) {
-            System.out.println("ERROR!!! Movimiento no válido");
+        if (game.isFoundationEmpty(numFoundation)) {
+            System.out.println(new Error(ErrorEnum.FOUNDATION_EMPTY));
+        } else if (checkFaceUpCard(tableau) != null) {
+            System.out.println(checkFaceUpCard(tableau));
+        } else if (validateMove() != null) {
+            System.out.println(validateMove());
         } else {
             tableau.addCardFaceUp(game.getFoundation(numFoundation).popCard());
         }
@@ -38,10 +39,10 @@ public class FoundationToTableauController extends MoveController {
             if (isCardValue(getLastCard(getFoundation(numFoundation)), "k")) {
                 return null;
             } else {
-                return Error.NOT_VALID_MOVE;
+                return new Error(ErrorEnum.NOT_VALID_MOVE);
             }
         } else if (!getLastCardTableauPile(tableau).validAboveTableau(getLastCard(getFoundation(numFoundation)))) {
-            return Error.NOT_VALID_MOVE;
+            return new Error(getLastCard(getFoundation(numFoundation)), getLastCardTableauPile(tableau));
         }
         return null;
     }
@@ -50,7 +51,7 @@ public class FoundationToTableauController extends MoveController {
         if (tableauOrigin.hasFaceUpCards()) {
             return null;
         }
-        return Error.FLIPCARD_ERROR;
+        return new Error(ErrorEnum.NO_FACEUP_CARDS);
     }
 
     public void setNumTableau(int numTableau) {

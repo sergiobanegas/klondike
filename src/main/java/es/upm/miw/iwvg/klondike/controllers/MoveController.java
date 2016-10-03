@@ -48,6 +48,10 @@ public abstract class MoveController extends OperationController {
     public boolean isCardValue(Card card, String value) {
         return card.getValue().getValue() == value;
     }
+    
+    public boolean isWasteEmpty() {
+        return game.isWasteEmpty();
+    }
 
     public Foundation getFoundation(int position) {
         return game.getFoundation(position);

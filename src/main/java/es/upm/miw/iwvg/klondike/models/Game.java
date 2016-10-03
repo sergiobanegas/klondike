@@ -69,6 +69,10 @@ public class Game {
         return deck.isEmpty();
     }
 
+    public boolean isFoundationEmpty(int position) {
+        return foundations.get(position).isEmpty();
+    }
+
     public void setDeck(Deck deck) {
         this.deck = deck;
     }

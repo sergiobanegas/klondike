@@ -22,13 +22,13 @@ public class TableauToFoundationController extends MoveController {
     public void control() {
         TableauPiles tableauOrigin = getTableauPile(numTableau);
         if (checkFaceUpCard(tableauOrigin) != null) {
-            System.out.println("ERROR!!! La escalera no tiene cartas descubiertas");
+            System.out.println(checkFaceUpCard(tableauOrigin));
         } else if (validateMove() != null) {
-            System.out.println("ERROR!!! Movimiento no válido");
+            System.out.println(validateMove());
         } else {
             getFoundation(numFoundation).addCard(getLastCardTableauPile(getTableauPile(numTableau)));
+            super.control();
         }
-        super.control();
     }
 
     @Override
@@ -38,14 +38,14 @@ public class TableauToFoundationController extends MoveController {
                 if (isCardValue(getLastCardTableauPile(getTableauPile(numTableau)), "A")) {
                     return null;
                 }
-                return Error.NOT_VALID_MOVE;
+                return new Error(ErrorEnum.NOT_VALID_MOVE);
             } else if (!getLastCard(getFoundation(numFoundation))
                     .validAboveFoundation(getLastCardTableauPile(getTableauPile(numFoundation)))) {
-                return Error.INVALID_CARD;
+                return new Error(getLastCardTableauPile(getTableauPile(numTableau)), getLastCard(getFoundation(numFoundation)));
             }
             return null;
         }
-        return Error.INVALID_SUIT;
+        return new Error(getLastCardTableauPile(getTableauPile(numTableau)), getLastCard(getFoundation(numFoundation)));
     }
 
     public void setNumTableau(int numTableau) {
@@ -60,7 +60,7 @@ public class TableauToFoundationController extends MoveController {
         if (tableauOrigin.hasFaceUpCards()) {
             return null;
         }
-        return Error.FLIPCARD_ERROR;
+        return new Error(ErrorEnum.NO_FACEUP_CARDS);
     }
 
     @Override
