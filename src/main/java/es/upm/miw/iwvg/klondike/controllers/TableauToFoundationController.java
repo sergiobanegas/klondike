@@ -20,26 +20,27 @@ public class TableauToFoundationController extends MoveController {
 
     @Override
     public void control() {
-        TableauPiles tableauOrigin = game.getTableauPile(numTableau);
+        TableauPiles tableauOrigin = getTableauPile(numTableau);
         if (checkFaceUpCard(tableauOrigin) != null) {
             System.out.println("ERROR!!! La escalera no tiene cartas descubiertas");
         } else if (validateMove() != null) {
             System.out.println("ERROR!!! Movimiento no válido");
         } else {
-            game.getFoundation(numFoundation).addCard(game.getTableauPile(numTableau).popCard());
+            getFoundation(numFoundation).addCard(getLastCardTableauPile(getTableauPile(numTableau)));
         }
+        super.control();
     }
 
     @Override
     public Error validateMove() {
-        if (game.getFoundation(numFoundation).sameSuit(game.getTableauPile(numTableau).getLastCard())) {
-            if (game.getFoundation(numFoundation).isEmpty()) {
-                if (game.getTableauPile(numTableau).getLastCard().getValue().getValue() == "A") {
+        if (getFoundation(numFoundation).sameSuit(getLastCardTableauPile(getTableauPile(numTableau)))) {
+            if (getFoundation(numFoundation).isEmpty()) {
+                if (isCardValue(getLastCardTableauPile(getTableauPile(numTableau)), "A")) {
                     return null;
                 }
                 return Error.NOT_VALID_MOVE;
-            } else if (!game.getFoundation(numFoundation).getLastCard()
-                    .validAboveFoundation(game.getTableauPile(numFoundation).getLastCard())) {
+            } else if (!getLastCard(getFoundation(numFoundation))
+                    .validAboveFoundation(getLastCardTableauPile(getTableauPile(numFoundation)))) {
                 return Error.INVALID_CARD;
             }
             return null;

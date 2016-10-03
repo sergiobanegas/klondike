@@ -19,7 +19,7 @@ public class DeckToWasteController extends MoveController {
         } else {
             for (int i = 0; i < MAX_CARDS_DISCARD; i++) {
                 if (validateMove() == null) {
-                    game.getWaste().addCard(game.getDeck().popCard());
+                    game.addCardWaste(popLastCardDeck());
                 } else {
                     break;
                 }
@@ -29,7 +29,7 @@ public class DeckToWasteController extends MoveController {
 
     @Override
     public Error validateMove() {
-        if (game.getDeck().isEmpty()) {
+        if (game.isDeckEmpty()) {
             return Error.DECK_EMPTY;
         }
         return null;

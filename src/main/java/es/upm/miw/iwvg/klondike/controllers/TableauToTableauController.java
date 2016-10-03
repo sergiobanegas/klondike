@@ -23,8 +23,8 @@ public class TableauToTableauController extends MoveController {
 
     @Override
     public void control() {
-        TableauPiles tableauOrigin = game.getTableauPile(numTableauOrigin);
-        TableauPiles tableauTarget = game.getTableauPile(numTableauTarget);
+        TableauPiles tableauOrigin = getTableauPile(numTableauOrigin);
+        TableauPiles tableauTarget = getTableauPile(numTableauTarget);
         if (checkFaceUpCard(tableauOrigin) != null) {
             System.out.println("ERROR!!! La escalera origen no tiene cartas descubiertas");
         } else if (checkFaceUpCard(tableauTarget) != null) {
@@ -37,24 +37,25 @@ public class TableauToTableauController extends MoveController {
                 stackAux.push(tableauOrigin.popCard());
             }
             while (!stackAux.isEmpty()) {
-                tableauTarget.addCard(stackAux.pop());
+                tableauTarget.addCardFaceUp(stackAux.pop());
             }
         }
     }
 
     @Override
     public Error validateMove() {
-        TableauPiles tableauOrigin = game.getTableauPile(numTableauOrigin);
-        TableauPiles tableauTarget = game.getTableauPile(numTableauTarget);
+        TableauPiles tableauOrigin = getTableauPile(numTableauOrigin);
+        TableauPiles tableauTarget = getTableauPile(numTableauTarget);
         if (tableauTarget.isEmpty()) {
-            if (tableauOrigin.getCardsFaceUp().get(numCards - 1).getValue().getValue() == "K") {
+            if (isCardValue(tableauOrigin.getFaceUpCard(numCards - 1), "K")) {
                 return null;
             } else {
                 return Error.NOT_VALID_MOVE;
             }
         } else {
-            if (!tableauTarget.getLastCard()
-                    .validAboveTableau(tableauOrigin.getCardsFaceUp().get(tableauOrigin.getCardsFaceUp().size() - numCards))) {
+            if (tableauOrigin.getFaceUpCardsNumber() < numCards) {
+                return Error.NOT_VALID_MOVE;
+            } else if (!getLastCardTableauPile(tableauTarget).validAboveTableau(tableauOrigin.getFaceUpCard(numCards))) {
                 return Error.NOT_VALID_MOVE;
             }
         }

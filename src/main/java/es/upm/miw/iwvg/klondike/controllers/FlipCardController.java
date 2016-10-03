@@ -20,19 +20,19 @@ public class FlipCardController extends MoveController {
 
     @Override
     public void control() {
-        TableauPiles tableau = game.getTableauPile(numTableau);
+        TableauPiles tableau = getTableauPile(numTableau);
         if (validateMove() != null) {
             System.out.println("ERROR!!! No se puede voltear una carta descubierta");
         } else if (tableau.isEmpty()) {
             System.out.println("ERROR!!! La escalera está vacía");
         } else {
-            game.getTableauPile(numTableau).flipCard();
+            tableau.flipCard();
         }
     }
 
     @Override
     public Error validateMove() {
-        if (game.getTableauPile(numTableau).getCardsFaceUp().isEmpty()) {
+        if ((getTableauPile(numTableau).getCardsFaceUp().isEmpty())) {
             return null;
         }
         return Error.FLIPCARD_ERROR;

@@ -20,27 +20,27 @@ public class FoundationToTableauController extends MoveController {
 
     @Override
     public void control() {
-        TableauPiles tableau = game.getTableauPile(numTableau);
+        TableauPiles tableau = getTableauPile(numTableau);
         if (checkFaceUpCard(tableau) != null) {
             System.out.println("ERROR!!! La escalera no tiene cartas descubiertas");
         }
         if (validateMove() != null) {
             System.out.println("ERROR!!! Movimiento no válido");
         } else {
-            game.getTableauPile(numTableau).addCard(game.getFoundation(numFoundation).popCard());
+            tableau.addCardFaceUp(game.getFoundation(numFoundation).popCard());
         }
     }
 
     @Override
     public Error validateMove() {
-        TableauPiles tableau = game.getTableauPile(numTableau);
+        TableauPiles tableau = getTableauPile(numTableau);
         if (tableau.isEmpty()) {
-            if (game.getFoundation(numFoundation).getLastCard().getValue().getValue() == "k") {
+            if (isCardValue(getLastCard(getFoundation(numFoundation)), "k")) {
                 return null;
             } else {
                 return Error.NOT_VALID_MOVE;
             }
-        } else if (!tableau.getLastCard().validAboveTableau(game.getFoundation(numFoundation).getLastCard())) {
+        } else if (!getLastCardTableauPile(tableau).validAboveTableau(getLastCard(getFoundation(numFoundation)))) {
             return Error.NOT_VALID_MOVE;
         }
         return null;
