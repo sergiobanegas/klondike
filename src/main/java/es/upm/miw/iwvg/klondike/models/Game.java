@@ -3,7 +3,7 @@ package es.upm.miw.iwvg.klondike.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game {
+public class Game implements GameInterface{
 
     private static Game game;
     
@@ -102,18 +102,22 @@ public class Game {
         return cards == Suit.values().length * CardValue.values().length;
     }
 
+    @Override
     public String getDeckString() {
         return deck.toString();
     }
 
+    @Override
     public String getWasteString() {
         return waste.toString();
     }
 
+    @Override
     public String getFoundationString(int position) {
         return getFoundation(position).toString();
     }
 
+    @Override
     public String getTableauString(int position) {
         return getTableauPile(position).toString();
     }

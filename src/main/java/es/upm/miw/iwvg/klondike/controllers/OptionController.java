@@ -1,6 +1,5 @@
 package es.upm.miw.iwvg.klondike.controllers;
 
-import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.Option;
 
 public class OptionController {
@@ -9,7 +8,7 @@ public class OptionController {
 
     private static final int NUM_OPTIONS = 9;
 
-    public OptionController(Game game) {
+    public OptionController() {
         options = new Option[NUM_OPTIONS];
         for (int i = 0; i < NUM_OPTIONS; i++) {
             options[i] = new Option(i + 1);
