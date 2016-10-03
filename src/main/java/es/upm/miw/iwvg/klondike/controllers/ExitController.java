@@ -1,13 +1,12 @@
 package es.upm.miw.iwvg.klondike.controllers;
 
 import es.upm.miw.iwvg.klondike.View;
-import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.State;
 
 public class ExitController extends OperationController {
 
-    public ExitController(Game game) {
-        super(game);
+    public ExitController() {
+        super();
     }
 
     public void control() {

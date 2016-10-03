@@ -8,9 +8,8 @@ public abstract class Controller {
 
     protected Game game;
 
-    protected Controller(Game game) {
-        assert game != null;
-        this.game = game;
+    protected Controller() {
+        this.game = Game.getInstance();
     }
 
     protected State getState() {

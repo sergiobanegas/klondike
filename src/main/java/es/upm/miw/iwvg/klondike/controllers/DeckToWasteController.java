@@ -1,15 +1,14 @@
 package es.upm.miw.iwvg.klondike.controllers;
 
 import es.upm.miw.iwvg.klondike.View;
-import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.views.MoveView;
 
 public class DeckToWasteController extends MoveController {
 
     private static final int MAX_CARDS_DISCARD = 3;
 
-    public DeckToWasteController(Game game) {
-        super(game);
+    public DeckToWasteController() {
+        super();
     }
 
     @Override

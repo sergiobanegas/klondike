@@ -1,7 +1,6 @@
 package es.upm.miw.iwvg.klondike.controllers;
 
 import es.upm.miw.iwvg.klondike.View;
-import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.TableauPiles;
 import es.upm.miw.iwvg.klondike.views.MoveView;
 
@@ -9,8 +8,8 @@ public class TableauToFoundationController extends MoveController {
 
     private int numTableau, numFoundation;
 
-    public TableauToFoundationController(Game game) {
-        super(game);
+    public TableauToFoundationController() {
+        super();
     }
 
     @Override

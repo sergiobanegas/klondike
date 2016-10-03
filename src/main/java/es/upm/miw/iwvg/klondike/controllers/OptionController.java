@@ -12,7 +12,7 @@ public class OptionController {
     public OptionController(Game game) {
         options = new Option[NUM_OPTIONS];
         for (int i = 0; i < NUM_OPTIONS; i++) {
-            options[i] = new Option(i + 1, game);
+            options[i] = new Option(i + 1);
         }
     }
 

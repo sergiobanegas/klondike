@@ -3,7 +3,6 @@ package es.upm.miw.iwvg.klondike.controllers;
 import es.upm.miw.iwvg.klondike.View;
 import es.upm.miw.iwvg.klondike.models.Deck;
 import es.upm.miw.iwvg.klondike.models.Foundation;
-import es.upm.miw.iwvg.klondike.models.Game;
 import es.upm.miw.iwvg.klondike.models.State;
 import es.upm.miw.iwvg.klondike.models.Suit;
 import es.upm.miw.iwvg.klondike.models.TableauPiles;
@@ -11,8 +10,8 @@ import es.upm.miw.iwvg.klondike.models.Waste;
 
 public class StartController extends OperationController {
 
-    public StartController(Game game) {
-        super(game);
+    public StartController() {
+        super();
     }
 
     private void createTableauPiles() {
