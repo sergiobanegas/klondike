@@ -32,8 +32,8 @@ public class FlipCardController extends MoveController {
 
     @Override
     public Error validateMove() {
-        if ((getTableauPile(numTableau).getCardsFaceUp().isEmpty())) {// FIXME
-            if (getTableauPile(numTableau).getCardsFaceDown().isEmpty()) {
+        if (!getTableauPile(numTableau).hasFaceUpCards()) {
+            if (!getTableauPile(numTableau).hasFaceDownCards()) {
                 return new Error(ErrorEnum.NO_FACEDOWN_CARDS);
             } else {
                 return null;

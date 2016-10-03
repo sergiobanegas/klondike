@@ -55,6 +55,10 @@ public class TableauPiles {
     public boolean hasFaceUpCards() {
         return !this.cardsFaceUp.isEmpty();
     }
+    
+    public boolean hasFaceDownCards() {
+        return !this.cardsFaceDown.isEmpty();
+    }
 
     public Stack<Card> getCardsFaceUp() {
         return cardsFaceUp;
