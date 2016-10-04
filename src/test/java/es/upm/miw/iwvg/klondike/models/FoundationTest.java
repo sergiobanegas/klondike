@@ -13,6 +13,12 @@ public class FoundationTest {
     public void before() {
         foundation = new Foundation(Suit.TREBOLES);
     }
+    
+    @Test
+    public void sameSuitTest(){
+        assertTrue(foundation.sameSuit(new Card(CardValue.KING, Suit.TREBOLES)));
+        assertFalse(foundation.sameSuit(new Card(CardValue.TWO, Suit.CORAZONES)));
+    }
 
     @Test
     public void toStringTest() {

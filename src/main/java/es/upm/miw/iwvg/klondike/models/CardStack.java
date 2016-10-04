@@ -18,11 +18,19 @@ public class CardStack {
         return cards.pop();
     }
 
+    public Card getLastCard() {
+        return cards.get(cards.size() - 1);
+    }
+
     public boolean isEmpty() {
         return cards.isEmpty();
     }
 
     public void clear() {
         this.cards = new Stack<Card>();
+    }
+
+    public int size() { // added in CardStack for testing purposes
+        return this.cards.size();
     }
 }

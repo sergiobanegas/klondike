@@ -109,7 +109,7 @@ public class Game implements GameInterface {
     public boolean isGameFinalized() {
         int cards = 0;
         for (Foundation foundation : foundations) {
-            cards += foundation.getSize();
+            cards += foundation.size();
         }
         return cards == Suit.values().length * CardValue.values().length;
     }
