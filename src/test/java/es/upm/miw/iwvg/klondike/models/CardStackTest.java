@@ -33,17 +33,24 @@ public class CardStackTest {
     @Test
     public void getCardTest() {
         assertEquals(new Card(CardValue.QUEEN, Suit.DIAMANTES).toString(), cards.getLastCard().toString());
+        cards.popCard();
+        assertEquals(new Card(CardValue.ACE, Suit.CORAZONES).toString(), cards.getLastCard().toString());
     }
 
     @Test
     public void popCardTest() {
         cards.popCard();
         assertEquals(2, cards.size());
+        cards.popCard();
+        assertEquals(1, cards.size());
+        assertEquals(new Card(CardValue.TWO, Suit.TREBOLES).toString(), cards.getLastCard().toString());
     }
 
     @Test
-    public void getCardsTest() {
+    public void sizeTest() {
         assertEquals(3, cards.size());
+        cards.popCard();
+        assertEquals(2, cards.size());
     }
 
 }
