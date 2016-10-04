@@ -1,10 +1,10 @@
 package es.upm.miw.iwvg.klondike.views;
 
-import es.upm.miw.iwvg.klondike.controllers.ControllerInterface;
+import es.upm.miw.iwvg.klondike.controllers.WasteToDeckController;
 
 public class WasteToDeckView {
 
-    public void interact(ControllerInterface controller) {
+    public void interact(WasteToDeckController controller) {
         controller.control();
     }
 

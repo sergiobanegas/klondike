@@ -1,6 +1,5 @@
 package es.upm.miw.iwvg.klondike.views;
 
-import es.upm.miw.iwvg.klondike.controllers.ControllerInterface;
 import es.upm.miw.iwvg.klondike.controllers.DeckToWasteController;
 import es.upm.miw.iwvg.klondike.controllers.FlipCardController;
 import es.upm.miw.iwvg.klondike.controllers.FoundationToTableauController;
@@ -11,7 +10,7 @@ import es.upm.miw.iwvg.klondike.controllers.WasteToDeckController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToFoundationController;
 import es.upm.miw.iwvg.klondike.controllers.WasteToTableauController;
 
-public class MoveView implements ViewInterface {
+public class MoveView {
 
     private WasteToFoundationView wasteToFoundationView;
 
@@ -40,10 +39,8 @@ public class MoveView implements ViewInterface {
         flipCardView = new FlipCardView();
     }
 
-    @Override
-    public void interact(ControllerInterface controller) {
-        MoveController moveController = (MoveController) controller;
-        moveController.acceptMove(this);
+    public void interact(MoveController controller) {
+        controller.acceptMove(this);
     }
 
     public void visitDeckToWaste(DeckToWasteController deckToWasteController) {

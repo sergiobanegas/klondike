@@ -9,9 +9,8 @@ import es.upm.miw.iwvg.klondike.views.ExitView;
 import es.upm.miw.iwvg.klondike.views.FinalizedView;
 import es.upm.miw.iwvg.klondike.views.MoveView;
 import es.upm.miw.iwvg.klondike.views.StartView;
-import es.upm.miw.iwvg.klondike.views.ViewInterface;
 
-public class View implements ViewInterface {
+public class View {
 
     private StartView startView;
 
@@ -28,7 +27,6 @@ public class View implements ViewInterface {
         finalizedView = new FinalizedView();
     }
 
-    @Override
     public void interact(ControllerInterface operationController) {
         assert operationController != null;
         operationController.accept(this);

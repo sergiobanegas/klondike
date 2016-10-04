@@ -1,12 +1,11 @@
 package es.upm.miw.iwvg.klondike.views;
 
-import es.upm.miw.iwvg.klondike.controllers.ControllerInterface;
+import es.upm.miw.iwvg.klondike.controllers.ExitController;
 import es.upm.miw.iwvg.klondike.utils.IO;
 
-public class ExitView implements ViewInterface {
+public class ExitView {
 
-    @Override
-    public void interact(ControllerInterface controller) {
+    public void interact(ExitController controller) {
         IO io = new IO();
         int answer = io.readInt("¿Estás seguro de terminar el juego? (0-no, 1-sí)");
         while ((answer != 0) && (answer != 1)) {

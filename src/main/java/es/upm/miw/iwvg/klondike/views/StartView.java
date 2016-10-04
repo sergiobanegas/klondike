@@ -1,11 +1,10 @@
 package es.upm.miw.iwvg.klondike.views;
 
-import es.upm.miw.iwvg.klondike.controllers.ControllerInterface;
+import es.upm.miw.iwvg.klondike.controllers.StartController;
 
-public class StartView implements ViewInterface {
+public class StartView{
 
-    @Override
-    public void interact(ControllerInterface startController) {
+    public void interact(StartController startController) {
         startController.control();
     }
 }
