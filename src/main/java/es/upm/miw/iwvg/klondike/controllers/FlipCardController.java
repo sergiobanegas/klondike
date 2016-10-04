@@ -19,7 +19,7 @@ public class FlipCardController extends MoveController {
 
     @Override
     public void control() {
-        TableauPiles tableau = getTableauPile(numTableau);
+        TableauPiles tableau = game.getTableauPile(numTableau);
         Error error = validateMove();
         if (tableau.isEmpty()) {
             System.out.println(new Error(ErrorEnum.TABLEAU_EMPTY));
@@ -32,8 +32,8 @@ public class FlipCardController extends MoveController {
 
     @Override
     public Error validateMove() {
-        if (!getTableauPile(numTableau).hasFaceUpCards()) {
-            if (!getTableauPile(numTableau).hasFaceDownCards()) {
+        if (!game.getTableauPile(numTableau).hasFaceUpCards()) {
+            if (!game.getTableauPile(numTableau).hasFaceDownCards()) {
                 return new Error(ErrorEnum.NO_FACEDOWN_CARDS);
             } else {
                 return null;

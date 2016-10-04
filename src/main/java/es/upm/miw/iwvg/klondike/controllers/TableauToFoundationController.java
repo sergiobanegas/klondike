@@ -19,32 +19,32 @@ public class TableauToFoundationController extends MoveController {
 
     @Override
     public void control() {
-        TableauPiles tableauOrigin = getTableauPile(numTableau);
+        TableauPiles tableauOrigin = game.getTableauPile(numTableau);
         if (checkFaceUpCard(tableauOrigin) != null) {
             System.out.println(checkFaceUpCard(tableauOrigin));
         } else if (validateMove() != null) {
             System.out.println(validateMove());
         } else {
-            getFoundation(numFoundation).addCard(getLastCardTableauPile(getTableauPile(numTableau)));
+            game.getFoundation(numFoundation).addCard(game.getTableauPile(numTableau).getLastCard());
             super.control();
         }
     }
 
     @Override
     public Error validateMove() {
-        if (getFoundation(numFoundation).sameSuit(getLastCardTableauPile(getTableauPile(numTableau)))) {
-            if (getFoundation(numFoundation).isEmpty()) {
-                if (isCardValue(getLastCardTableauPile(getTableauPile(numTableau)), "A")) {
+        if (game.getFoundation(numFoundation).sameSuit(game.getTableauPile(numTableau).getLastCard())) {
+            if (game.getFoundation(numFoundation).isEmpty()) {
+                if (game.getTableauPile(numTableau).getLastCard().hasValue("A")) {
                     return null;
                 }
                 return new Error(ErrorEnum.NOT_VALID_MOVE);
-            } else if (!getLastCard(getFoundation(numFoundation))
-                    .validAboveFoundation(getLastCardTableauPile(getTableauPile(numFoundation)))) {
-                return new Error(getLastCardTableauPile(getTableauPile(numTableau)), getLastCard(getFoundation(numFoundation)));
+            } else if (!game.getFoundation(numFoundation).getLastCard()
+                    .validAboveFoundation(game.getTableauPile(numFoundation).getLastCard())) {
+                return new Error(game.getTableauPile(numTableau).getLastCard(), game.getFoundation(numFoundation).getLastCard());
             }
             return null;
         }
-        return new Error(getLastCardTableauPile(getTableauPile(numTableau)), getLastCard(getFoundation(numFoundation)));
+        return new Error(game.getTableauPile(numTableau).getLastCard(), game.getFoundation(numFoundation).getLastCard());
     }
 
     public void setNumTableau(int numTableau) {

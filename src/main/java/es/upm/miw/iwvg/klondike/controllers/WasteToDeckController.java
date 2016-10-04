@@ -21,13 +21,13 @@ public class WasteToDeckController extends MoveController {
             System.out.println(error);
         }
         while (!game.isWasteEmpty()) {
-            game.addCardDeck(popLastCardWaste());
+            game.addCardDeck(game.popCardWaste());
         }
     }
 
     @Override
     public Error validateMove() {
-        if (isWasteEmpty()) {
+        if (game.isWasteEmpty()) {
             return new Error(ErrorEnum.WASTE_EMPTY);
         }
         return null;
