@@ -46,8 +46,8 @@ public class WasteToTableauController extends MoveController {
         return null;
     }
 
-    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
-        if (tableauOrigin.hasFaceUpCards()) {
+    public Error checkFaceUpCard(TableauPiles tableau) {
+        if (tableau.hasFaceUpCards() || tableau.isEmpty()) {
             return null;
         }
         return new Error(ErrorEnum.FLIPCARD_ERROR);

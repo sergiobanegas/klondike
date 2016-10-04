@@ -20,13 +20,12 @@ public class FoundationToTableauController extends MoveController {
     @Override
     public void control() {
         TableauPiles tableau = game.getTableauPile(numTableau);
-        if (game.getFoundation(numFoundation).isEmpty()){
+        if (game.getFoundation(numFoundation).isEmpty()) {
             System.out.println(ErrorEnum.FOUNDATION_EMPTY);
-        }
-        else if (validateMove() != null) {
-            System.out.println(validateMove());
         } else if (checkFaceUpCard(tableau) != null) {
             System.out.println(checkFaceUpCard(tableau));
+        } else if (validateMove() != null) {
+            System.out.println(validateMove());
         } else {
             tableau.addCardFaceUp(game.popCardFoundation(numFoundation));
         }
@@ -50,12 +49,12 @@ public class FoundationToTableauController extends MoveController {
     public Error checkFaceUpCard(TableauPiles tableau) {
         if (tableau.isEmpty()) {
             return null;
-        }else{
+        } else {
             if (tableau.hasFaceUpCards()) {
                 return null;
             }
             return new Error(ErrorEnum.NO_FACEUP_CARDS);
-        }      
+        }
     }
 
     public void setNumTableau(int numTableau) {
