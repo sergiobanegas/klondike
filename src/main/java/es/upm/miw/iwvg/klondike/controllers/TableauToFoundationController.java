@@ -27,7 +27,7 @@ public class TableauToFoundationController extends MoveController {
         } else if (validateMove() != null) {
             System.out.println(validateMove());
         } else {
-            game.getFoundation(numFoundation).addCard(game.getTableauPile(numTableau).getLastCard());
+            game.getFoundation(numFoundation).addCard(game.getTableauPile(numTableau).popCard());
             super.control();
         }
     }
@@ -46,7 +46,11 @@ public class TableauToFoundationController extends MoveController {
             }
             return null;
         }
-        return new Error(game.getTableauPile(numTableau).getLastCard(), game.getFoundation(numFoundation).getLastCard());
+        if (game.isFoundationEmpty(numFoundation)){
+           return new Error(ErrorEnum.NOT_VALID_MOVE);
+        }else{
+            return new Error(game.getTableauPile(numTableau).getLastCard(), game.getFoundation(numFoundation).getLastCard());
+        }    
     }
 
     public void setNumTableau(int numTableau) {
