@@ -16,7 +16,7 @@ public class DeckTest {
 
     @Test
     public void deckSizeTest() {
-        assertEquals(52, deck.getCards().size());
+        assertEquals(52, deck.size());
     }
 
     @Test

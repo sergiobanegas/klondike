@@ -13,14 +13,6 @@ public class Foundation extends CardStack {
         return card.isSuit(suit);
     }
 
-    public int getSize() {
-        return cards.size();
-    }
-
-    public Card getLastCard() {
-        return cards.get(cards.size() - 1);
-    }
-
     @Override
     public String toString() {
         if (super.cards.isEmpty()) {

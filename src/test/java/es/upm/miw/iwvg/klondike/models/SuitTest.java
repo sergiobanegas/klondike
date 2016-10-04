@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class SuitTest {
 
-    
     @Test
     public void getValueTest() {
         assertEquals("t", Suit.TREBOLES.getValue());
@@ -15,12 +14,4 @@ public class SuitTest {
         assertEquals("c", Suit.CORAZONES.getValue());
     }
 
-    @Test
-    public void positionTest() {
-        assertEquals(1, Suit.CORAZONES.position());
-        assertEquals(2, Suit.DIAMANTES.position());
-        assertEquals(3, Suit.TREBOLES.position());
-        assertEquals(4, Suit.PICAS.position());
-    }
-    
 }

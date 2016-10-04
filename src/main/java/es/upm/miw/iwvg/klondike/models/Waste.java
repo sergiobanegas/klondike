@@ -24,10 +24,6 @@ public class Waste extends CardStack {
         }
     }
 
-    public Card getLastCard() {
-        return cards.get(cards.size() - 1);
-    }
-
     public String toStringCardList(List<Card> cards) {
         String toString = "";
         for (Card card : cards) {
