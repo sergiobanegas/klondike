@@ -30,6 +30,10 @@ public class Game implements GameInterface {
         return game;
     }
 
+    public static GameInterface getGameInterfaceInstance() {
+        return game;
+    }
+
     public State getState() {
         return state;
     }
@@ -126,7 +130,7 @@ public class Game implements GameInterface {
     }
 
     @Override
-    public String getTableauString(int position) {
+    public String getTableauPileString(int position) {
         return getTableauPile(position).toString();
     }
 
