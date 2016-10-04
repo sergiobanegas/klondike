@@ -44,10 +44,6 @@ public class TableauPiles {
         cardsFaceDown.add(card);
     }
 
-    public Stack<Card> getCardsFaceDown() {
-        return cardsFaceDown;
-    }
-
     public Card getFaceUpCard(int position) {
         return cardsFaceUp.get(cardsFaceUp.size() - position);
     }
@@ -58,14 +54,6 @@ public class TableauPiles {
 
     public boolean hasFaceDownCards() {
         return !this.cardsFaceDown.isEmpty();
-    }
-
-    public Stack<Card> getCardsFaceUp() {
-        return cardsFaceUp;
-    }
-
-    public static int getNumberOfPiles() {
-        return NUMBER_OF_PILES;
     }
 
     public void clear() {

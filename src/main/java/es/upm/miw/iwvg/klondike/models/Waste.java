@@ -12,15 +12,27 @@ public class Waste extends CardStack {
 
     @Override
     public String toString() {
-        if (super.cards.isEmpty()) {
+        if (cards.isEmpty()) {
             return "<vacío>";
         } else {
-            if (super.cards.size() < 4) {
-                return super.toStringCardList(super.cards);
+            if (cards.size() < 4) {
+                return toStringCardList(cards);
             } else {
-                List<Card> lastCards = super.getCards().subList(super.cards.size() - SIZE, super.cards.size());
-                return super.toStringCardList(lastCards);
+                List<Card> lastCards = cards.subList(cards.size() - SIZE, cards.size());
+                return toStringCardList(lastCards);
             }
         }
+    }
+
+    public Card getLastCard() {
+        return cards.get(cards.size() - 1);
+    }
+
+    public String toStringCardList(List<Card> cards) {
+        String toString = "";
+        for (Card card : cards) {
+            toString += card.toString();
+        }
+        return toString;
     }
 }

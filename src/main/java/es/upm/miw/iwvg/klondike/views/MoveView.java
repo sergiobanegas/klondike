@@ -46,35 +46,35 @@ public class MoveView implements ViewInterface {
         moveController.acceptMove(this);
     }
 
-    public void visit(DeckToWasteController deckToWasteController) {
+    public void visitDeckToWaste(DeckToWasteController deckToWasteController) {
         deckToWasteView.interact(deckToWasteController);
     }
 
-    public void visit(WasteToDeckController wasteToDeckController) {
+    public void visitWasteToDeck(WasteToDeckController wasteToDeckController) {
         wasteToDeckView.interact(wasteToDeckController);
     }
 
-    public void visit(WasteToFoundationController wasteToFoundationController) {
+    public void visitWasteToFoundation(WasteToFoundationController wasteToFoundationController) {
         wasteToFoundationView.interact(wasteToFoundationController);
     }
 
-    public void visit(WasteToTableauController wasteToTableauController) {
+    public void visitWasteToTableau(WasteToTableauController wasteToTableauController) {
         wasteToTableauView.interact(wasteToTableauController);
     }
 
-    public void visit(TableauToFoundationController tableauToFoundationController) {
+    public void visitTableauToFoundation(TableauToFoundationController tableauToFoundationController) {
         tableauToFoundationView.interact(tableauToFoundationController);
     }
 
-    public void visit(TableauToTableauController tableauToTableauController) {
+    public void visitTableauToTableau(TableauToTableauController tableauToTableauController) {
         tableauToTableauView.interact(tableauToTableauController);
     }
 
-    public void visit(FoundationToTableauController foundationToTableauController) {
+    public void visitFoundationToTableau(FoundationToTableauController foundationToTableauController) {
         foundationToTableauView.interact(foundationToTableauController);
     }
 
-    public void visit(FlipCardController flipCardController) {
+    public void visitFlipCard(FlipCardController flipCardController) {
         flipCardView.interact(flipCardController);
     }
 

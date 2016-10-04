@@ -25,8 +25,8 @@ public class Card {
         return value;
     }
 
-    public Color getColor() {
-        return color;
+    public String getColor() {
+        return color.getValue();
     }
 
     public boolean hasValue(String value) {
@@ -34,7 +34,7 @@ public class Card {
     }
 
     public boolean isSameColor(Card card) {
-        return card.getColor().getValue() == color.getValue();
+        return card.getColor() == color.getValue();
     }
 
     public boolean isSuit(Suit suit) {

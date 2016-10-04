@@ -59,7 +59,7 @@ public class WasteToTableauController extends MoveController {
 
     @Override
     public void acceptMove(MoveView view) {
-        view.visit(this);
+        view.visitWasteToTableau(this);
     }
 
 }

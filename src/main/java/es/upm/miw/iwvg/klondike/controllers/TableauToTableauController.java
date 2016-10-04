@@ -24,7 +24,9 @@ public class TableauToTableauController extends MoveController {
     public void control() {
         TableauPiles tableauOrigin = game.getTableauPile(numTableauOrigin);
         TableauPiles tableauTarget = game.getTableauPile(numTableauTarget);
-        if (checkFaceUpCard(tableauOrigin) != null) {
+        if (tableauOrigin.isEmpty()) {
+            System.out.println(ErrorEnum.TABLEAU_EMPTY);
+        } else if (checkFaceUpCard(tableauOrigin) != null) {
             System.out.println(checkFaceUpCard(tableauOrigin));
         } else if (checkFaceUpCard(tableauTarget) != null) {
             System.out.println(checkFaceUpCard(tableauTarget));
@@ -82,7 +84,7 @@ public class TableauToTableauController extends MoveController {
 
     @Override
     public void acceptMove(MoveView view) {
-        view.visit(this);
+        view.visitTableauToTableau(this);
     }
 
 }

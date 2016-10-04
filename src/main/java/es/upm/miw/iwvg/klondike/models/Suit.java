@@ -10,10 +10,6 @@ public enum Suit {
         this.value = value;
     }
 
-    public int position() {
-        return this.ordinal() + 1;
-    }
-
     public String getValue() {
         return value;
     }

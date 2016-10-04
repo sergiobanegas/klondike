@@ -9,6 +9,7 @@ public class FinalizedController extends OperationController {
         super();
     }
 
+    @Override
     public void control() {
         game.setState(State.FINALIZED);
     }

@@ -50,7 +50,7 @@ public class WasteToFoundationController extends MoveController {
 
     @Override
     public void acceptMove(MoveView view) {
-        view.visit(this);
+        view.visitWasteToFoundation(this);
     }
 
 }
