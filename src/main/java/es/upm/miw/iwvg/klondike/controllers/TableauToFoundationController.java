@@ -65,8 +65,8 @@ public class TableauToFoundationController extends MoveController {
         this.numFoundation = numFoundation;
     }
 
-    public Error checkFaceUpCard(TableauPiles tableauOrigin) {
-        if (tableauOrigin.hasFaceUpCards()) {
+    public Error checkFaceUpCard(TableauPiles tableau) {
+        if (tableau.hasFaceUpCards()) {
             return null;
         }
         return new Error(ErrorEnum.NO_FACEUP_CARDS);
