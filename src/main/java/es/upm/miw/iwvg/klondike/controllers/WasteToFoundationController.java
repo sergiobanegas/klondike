@@ -13,7 +13,7 @@ public class WasteToFoundationController extends MoveController {
 
     @Override
     public void accept(View operationControllerVisitor) {
-        operationControllerVisitor.visit(this);
+        operationControllerVisitor.visitMove(this);
     }
 
     @Override

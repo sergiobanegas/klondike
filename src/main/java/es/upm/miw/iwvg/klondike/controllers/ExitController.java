@@ -16,7 +16,7 @@ public class ExitController extends OperationController {
 
     @Override
     public void accept(View view) {
-        view.visit(this);
+        view.visitExit(this);
     }
 
 }
