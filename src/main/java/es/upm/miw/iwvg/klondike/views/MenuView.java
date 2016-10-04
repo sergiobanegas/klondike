@@ -67,7 +67,7 @@ public class MenuView {
         int numOption = io.readInt("Opción? [1-9]:");
         while ((numOption > 9) || (numOption < 1)) {
             if ((numOption > 9) || (numOption < 1)) {
-                io.writeln("¡ERROR! Opción no válida");
+                io.writeln("ERROR!!! La opción debe ser entre 1 y 9 inclusives");
             }
             numOption = io.readInt("Opción? [1-9]:");
         }
