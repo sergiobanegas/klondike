@@ -23,5 +23,7 @@ public class DeckTest {
     public void toStringTest() {
         Deck deck = new Deck();
         assertEquals("[X,X]", deck.toString());
+        deck.clear();
+        assertEquals("<vacía>", deck.toString());
     }
 }

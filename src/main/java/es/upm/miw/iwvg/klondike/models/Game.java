@@ -153,11 +153,15 @@ public class Game implements GameInterface {
 
     @Override
     public String getFoundationString(int position) {
+        assert position >= 0;
+        assert position < 4;
         return getFoundation(position).toString();
     }
 
     @Override
     public String getTableauPileString(int position) {
+        assert position >= 0;
+        assert position < 7;
         return getTableauPile(position).toString();
     }
 

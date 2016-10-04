@@ -31,7 +31,7 @@ public class CardStackTest {
     }
 
     @Test
-    public void getCardTest() {
+    public void getLastCardTest() {
         assertEquals(new Card(CardValue.QUEEN, Suit.DIAMANTES).toString(), cards.getLastCard().toString());
         cards.popCard();
         assertEquals(new Card(CardValue.ACE, Suit.CORAZONES).toString(), cards.getLastCard().toString());
