@@ -12,6 +12,10 @@ public class FlipCardController extends MoveController {
         super();
     }
 
+    public void setNumTableau(int numTableau) {
+        this.numTableau = numTableau;
+    }
+
     @Override
     public void accept(View operationControllerVisitor) {
         operationControllerVisitor.visitMove(this);
@@ -22,7 +26,7 @@ public class FlipCardController extends MoveController {
         TableauPiles tableau = game.getTableauPile(numTableau);
         Error error = validateMove();
         if (tableau.isEmpty()) {
-            System.out.println(new Error(ErrorEnum.TABLEAU_EMPTY));
+            System.out.println(ErrorEnum.TABLEAU_EMPTY);
         } else if (validateMove() != null) {
             System.out.println(error);
         } else {
@@ -43,13 +47,9 @@ public class FlipCardController extends MoveController {
         return new Error(ErrorEnum.EXISTS_FACEUP_CARDS);
     }
 
-    public void setNumTableau(int numTableau) {
-        this.numTableau = numTableau;
-    }
-
     @Override
     public void acceptMove(MoveView view) {
-        view.visit(this);
+        view.visitFlipCard(this);
     }
 
 }

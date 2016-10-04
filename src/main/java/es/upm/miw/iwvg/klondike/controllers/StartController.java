@@ -18,9 +18,9 @@ public class StartController extends OperationController {
         for (int i = 0; i < TableauPiles.NUMBER_OF_PILES; i++) {
             TableauPiles tableau = new TableauPiles();
             for (int j = 0; j < i; j++) {
-                tableau.addCardFaceDown(popLastCardDeck());
+                tableau.addCardFaceDown(game.popCardDeck());
             }
-            tableau.addCardFaceUp(popLastCardDeck());
+            tableau.addCardFaceUp(game.popCardDeck());
             game.addTableauPile(tableau);
 
         }
@@ -43,7 +43,7 @@ public class StartController extends OperationController {
         game.setWaste(new Waste());
         createTableauPiles();
         createFoundations();
-        setState(State.IN_GAME);
+        game.setState(State.IN_GAME);
 
     }
 

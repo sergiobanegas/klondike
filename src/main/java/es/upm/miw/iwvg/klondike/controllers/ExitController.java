@@ -9,9 +9,10 @@ public class ExitController extends OperationController {
         super();
     }
 
+    @Override
     public void control() {
         game.end();
-        setState(State.EXIT);
+        game.setState(State.EXIT);
     }
 
     @Override

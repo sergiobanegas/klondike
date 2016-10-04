@@ -20,7 +20,7 @@ public class FoundationToTableauController extends MoveController {
     @Override
     public void control() {
         TableauPiles tableau = game.getTableauPile(numTableau);
-        if (game.isFoundationEmpty(numFoundation)) {
+        if (game.getFoundation(numFoundation).isEmpty()) {
             System.out.println(new Error(ErrorEnum.FOUNDATION_EMPTY));
         } else if (checkFaceUpCard(tableau) != null) {
             System.out.println(checkFaceUpCard(tableau));
@@ -63,7 +63,7 @@ public class FoundationToTableauController extends MoveController {
 
     @Override
     public void acceptMove(MoveView view) {
-        view.visit(this);
+        view.visitFoundationToTableau(this);
     }
 
 }

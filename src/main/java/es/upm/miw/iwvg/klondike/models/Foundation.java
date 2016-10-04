@@ -9,12 +9,16 @@ public class Foundation extends CardStack {
         this.suit = suit;
     }
 
-    public Suit getSuit() {
-        return suit;
-    }
-
     public boolean sameSuit(Card card) {
         return card.isSuit(suit);
+    }
+
+    public int getSize() {
+        return cards.size();
+    }
+
+    public Card getLastCard() {
+        return cards.get(cards.size() - 1);
     }
 
     @Override

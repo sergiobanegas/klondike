@@ -65,8 +65,8 @@ public class MenuView {
         showMenu();
         IO io = new IO();
         int numOption = io.readInt("Opción? [1-9]:");
-        while (numOption > 9) {
-            if (numOption > 9) {
+        while ((numOption > 9) || (numOption < 1)) {
+            if ((numOption > 9) || (numOption < 1)) {
                 io.writeln("¡ERROR! Opción no válida");
             }
             numOption = io.readInt("Opción? [1-9]:");
