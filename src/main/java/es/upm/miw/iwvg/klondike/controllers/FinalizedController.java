@@ -15,7 +15,7 @@ public class FinalizedController extends OperationController {
 
     @Override
     public void accept(View view) {
-        view.visit(this);
+        view.visitFinalized(this);
     }
 
 }

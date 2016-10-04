@@ -34,7 +34,7 @@ public class StartController extends OperationController {
 
     @Override
     public void accept(View operationControllerVisitor) {
-        operationControllerVisitor.visit(this);
+        operationControllerVisitor.visitStart(this);
     }
 
     @Override

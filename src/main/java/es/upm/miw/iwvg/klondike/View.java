@@ -34,19 +34,19 @@ public class View implements ViewInterface {
         operationController.accept(this);
     }
 
-    public void visit(StartController startController) {
+    public void visitStart(StartController startController) {
         startView.interact(startController);
     }
 
-    public void visit(MoveController moveController) {
+    public void visitMove(MoveController moveController) {
         moveView.interact(moveController);
     }
 
-    public void visit(ExitController exitController) {
+    public void visitExit(ExitController exitController) {
         exitView.interact(exitController);
     }
 
-    public void visit(FinalizedController finalizedController) {
+    public void visitFinalized(FinalizedController finalizedController) {
         finalizedView.interact(finalizedController);
     }
 

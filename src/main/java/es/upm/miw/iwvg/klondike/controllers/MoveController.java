@@ -58,7 +58,7 @@ public abstract class MoveController extends OperationController {
 
     @Override
     public void accept(View view) {
-        view.visit(this);
+        view.visitMove(this);
     }
 
 }
