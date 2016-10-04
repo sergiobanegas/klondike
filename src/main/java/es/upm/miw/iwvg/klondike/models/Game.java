@@ -135,6 +135,12 @@ public class Game implements GameInterface {
         return cards == Suit.values().length * CardValue.values().length;
     }
 
+    public void setWasteDisplaySize(int size) {
+        assert size >= 1;
+        assert size < 4;
+        waste.setDisplaySize(size);
+    }
+
     @Override
     public String getDeckString() {
         return deck.toString();

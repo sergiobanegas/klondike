@@ -4,10 +4,27 @@ import java.util.List;
 
 public class Waste extends CardStack {
 
-    private static final int SIZE = 3;
+    private int size = 3;
 
     public Waste() {
         super();
+    }
+
+    public void setDisplaySize(int size) {
+        assert size >= 0;
+        assert size < 4;
+        this.size = size;
+    }
+
+    @Override
+    public Card popCard() {
+        assert cards.isEmpty() == false;
+        if (size == 1) {
+            size = 3;
+        } else {
+            size--;
+        }
+        return cards.pop();
     }
 
     @Override
@@ -15,10 +32,10 @@ public class Waste extends CardStack {
         if (cards.isEmpty()) {
             return "<vacío>";
         } else {
-            if (cards.size() < 4) {
+            if (cards.size() < size) {
                 return toStringCardList(cards);
             } else {
-                List<Card> lastCards = cards.subList(cards.size() - SIZE, cards.size());
+                List<Card> lastCards = cards.subList(cards.size() - size, cards.size());
                 return toStringCardList(lastCards);
             }
         }

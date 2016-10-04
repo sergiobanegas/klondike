@@ -24,6 +24,7 @@ public class DeckToWasteController extends MoveController {
                     break;
                 }
             }
+            game.setWasteDisplaySize(3);
         }
     }
 
