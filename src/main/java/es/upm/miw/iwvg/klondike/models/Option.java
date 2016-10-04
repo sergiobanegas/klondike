@@ -16,6 +16,8 @@ public class Option {
     private OperationController optionControllerInterface;
 
     public Option(int option) {
+        assert option > 0;
+        assert option < 10;
         switch (option) {
         case 1:
             optionControllerInterface = new DeckToWasteController();

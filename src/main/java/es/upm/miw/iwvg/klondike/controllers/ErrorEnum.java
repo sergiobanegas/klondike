@@ -18,10 +18,13 @@ public enum ErrorEnum {
 	private String message;
 	
 	private ErrorEnum(String message){
+	    assert message != null;
 		this.message = message;
 	}
 	
 	private ErrorEnum(Card card1, Card card2){
+	    assert card1 != null;
+	    assert card2 != null;
         this.message="ERROR!!!  No se puede poner "+card1.toString()+" sobre "+card2.toString();
     }
 	

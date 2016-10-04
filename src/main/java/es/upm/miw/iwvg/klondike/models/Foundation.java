@@ -6,10 +6,12 @@ public class Foundation extends CardStack {
 
     public Foundation(Suit suit) {
         super();
+        assert suit != null;
         this.suit = suit;
     }
 
     public boolean sameSuit(Card card) {
+        assert card != null;
         return card.isSuit(suit);
     }
 

@@ -7,6 +7,7 @@ public enum Suit {
     private String value;
 
     private Suit(String value) {
+        assert value != null;
         this.value = value;
     }
 

@@ -7,6 +7,7 @@ public enum Color {
     private String value;
 
     private Color(String value) {
+        assert value != null;
         this.value = value;
     }
 

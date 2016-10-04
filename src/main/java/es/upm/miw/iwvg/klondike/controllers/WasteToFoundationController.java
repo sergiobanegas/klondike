@@ -45,6 +45,8 @@ public class WasteToFoundationController extends MoveController {
     }
 
     public void setNumFoundation(int numFoundation) {
+        assert numFoundation >= 0;
+        assert numFoundation < 4;
         this.numFoundation = numFoundation;
     }
 

@@ -16,6 +16,8 @@ public class OptionController {
     }
 
     public OperationController control(int numOption) {
+        assert numOption > 0;
+        assert numOption < 10;
         return (OperationController) options[numOption - 1].getController();
     }
 
