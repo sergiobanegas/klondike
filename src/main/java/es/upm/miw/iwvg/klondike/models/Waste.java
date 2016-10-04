@@ -11,7 +11,7 @@ public class Waste extends CardStack {
     }
 
     public void setDisplaySize(int size) {
-        assert size >= 0;
+        assert size > 0;
         assert size < 4;
         this.size = size;
     }
