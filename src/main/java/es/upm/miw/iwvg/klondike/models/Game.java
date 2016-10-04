@@ -39,42 +39,56 @@ public class Game implements GameInterface {
     }
 
     public TableauPiles getTableauPile(int position) {
+        assert position >= 0;
+        assert position < 7;
         return tableauPiles.get(position);
     }
 
     public void addFoundation(Foundation foundation) {
+        assert foundation != null;
         this.foundations.add(foundation);
     }
 
     public void addTableauPile(TableauPiles tableau) {
+        assert tableau != null;
         this.tableauPiles.add(tableau);
     }
 
     public Foundation getFoundation(int position) {
+        assert position >= 0;
+        assert position < 4;
         return foundations.get(position);
     }
 
     public void addCardWaste(Card card) {
+        assert card != null;
         waste.addCard(card);
     }
 
     public void addCardDeck(Card card) {
+        assert card != null;
         deck.addCard(card);
     }
 
     public Card getLastCardWaste() {
+        assert waste.isEmpty() == false;
         return waste.getLastCard();
     }
 
     public Card popCardWaste() {
+        assert waste.isEmpty() == false;
         return waste.popCard();
     }
 
     public Card popCardDeck() {
+        assert deck.isEmpty() == false;
         return deck.popCard();
     }
 
     public Card popCardFoundation(int position) {
+        assert position >= 0;
+        assert position < 4;
+        assert foundations.get(position).isEmpty() == false;
         return foundations.get(position).popCard();
     }
 
@@ -87,22 +101,29 @@ public class Game implements GameInterface {
     }
 
     public boolean hasTableauFaceUpCards(int position) {
+        assert position >= 0;
+        assert position < 7;
         return tableauPiles.get(position).isEmpty();
     }
 
     public boolean isFoundationEmpty(int position) {
+        assert position >= 0;
+        assert position < 4;
         return foundations.get(position).isEmpty();
     }
 
     public void setDeck(Deck deck) {
+        assert deck != null;
         this.deck = deck;
     }
 
     public void setState(State state) {
+        assert state != null;
         this.state = state;
     }
 
     public void setWaste(Waste waste) {
+        assert waste != null;
         this.waste = waste;
     }
 

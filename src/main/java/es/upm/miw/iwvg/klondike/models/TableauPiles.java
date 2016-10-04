@@ -20,6 +20,7 @@ public class TableauPiles {
     }
 
     public Card getLastCard() {
+        assert cardsFaceUp.isEmpty() == false;
         return cardsFaceUp.get(cardsFaceUp.size() - 1);
     }
 
@@ -29,6 +30,7 @@ public class TableauPiles {
     }
 
     public Card popCard() {
+        assert cardsFaceUp.isEmpty() == false;
         return cardsFaceUp.pop();
     }
 
@@ -37,14 +39,18 @@ public class TableauPiles {
     }
 
     public void addCardFaceUp(Card card) {
+        assert card != null;
         cardsFaceUp.add(card);
     }
 
     public void addCardFaceDown(Card card) {
+        assert card != null;
         cardsFaceDown.add(card);
     }
 
     public Card getFaceUpCard(int position) {
+        assert position >= 0;
+        assert position < cardsFaceUp.size();
         return cardsFaceUp.get(cardsFaceUp.size() - position);
     }
 

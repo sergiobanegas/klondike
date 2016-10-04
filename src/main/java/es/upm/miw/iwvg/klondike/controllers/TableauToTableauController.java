@@ -64,14 +64,19 @@ public class TableauToTableauController extends MoveController {
     }
 
     public void setNumTableauOrigin(int numTableauOrigin) {
+        assert numTableauOrigin >= 0;
+        assert numTableauOrigin < 7;
         this.numTableauOrigin = numTableauOrigin;
     }
 
     public void setNumTableauTarget(int numTableauTarget) {
+        assert numTableauTarget >= 0;
+        assert numTableauTarget < 7;
         this.numTableauTarget = numTableauTarget;
     }
 
     public void setNumCards(int numCards) {
+        assert numCards >= 0;
         this.numCards = numCards;
     }
 

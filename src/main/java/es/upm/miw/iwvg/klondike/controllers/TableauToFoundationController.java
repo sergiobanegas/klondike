@@ -50,10 +50,14 @@ public class TableauToFoundationController extends MoveController {
     }
 
     public void setNumTableau(int numTableau) {
+        assert numTableau >= 0;
+        assert numTableau < 7;
         this.numTableau = numTableau;
     }
 
     public void setNumFoundation(int numFoundation) {
+        assert numTableau >= 0;
+        assert numTableau < 4;
         this.numFoundation = numFoundation;
     }
 

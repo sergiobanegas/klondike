@@ -7,6 +7,7 @@ public enum CardValue {
     private String value;
 
     private CardValue(String value) {
+        assert value != null;
         this.value = value;
     }
 

@@ -15,10 +15,12 @@ public class CardStack {
     }
 
     public Card popCard() {
+        assert cards.isEmpty() == false;
         return cards.pop();
     }
 
     public Card getLastCard() {
+        assert cards.isEmpty() == false;
         return cards.get(cards.size() - 1);
     }
 

@@ -54,6 +54,8 @@ public class WasteToTableauController extends MoveController {
     }
 
     public void setNumTableau(int numTableau) {
+        assert numTableau >= 0;
+        assert numTableau < 7;
         this.numTableau = numTableau;
     }
 
