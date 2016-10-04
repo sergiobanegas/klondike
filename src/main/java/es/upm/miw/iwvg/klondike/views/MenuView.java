@@ -1,17 +1,17 @@
 package es.upm.miw.iwvg.klondike.views;
 
+import es.upm.miw.iwvg.klondike.controllers.MenuController;
 import es.upm.miw.iwvg.klondike.controllers.OperationController;
 import es.upm.miw.iwvg.klondike.controllers.OptionController;
-import es.upm.miw.iwvg.klondike.models.GameInterface;
 import es.upm.miw.iwvg.klondike.utils.IO;
 
 public class MenuView {
-    private GameInterface game;
+    private MenuController menuController;
 
     private OptionController optionController;
 
-    public MenuView(GameInterface game) {
-        this.game = game;
+    public MenuView() {
+        this.menuController = new MenuController();
         this.optionController = new OptionController();
     }
 
@@ -19,31 +19,31 @@ public class MenuView {
         IO io = new IO();
         io.writeln("===========================");
         io.write("Baraja: ");
-        io.writeln(game.getDeckString());
+        io.writeln(menuController.getDeck());
         io.write("Descarte: ");
-        io.writeln(game.getWasteString());
+        io.writeln(menuController.getWaste());
         io.write("Palo corazones: ");
-        io.writeln(game.getFoundationString(0));
+        io.writeln(menuController.getFoundation(0));
         io.write("Palo diamantes: ");
-        io.writeln(game.getFoundationString(1));
+        io.writeln(menuController.getFoundation(1));
         io.write("Palo tréboles: ");
-        io.writeln(game.getFoundationString(2));
+        io.writeln(menuController.getFoundation(2));
         io.write("Palo picas: ");
-        io.writeln(game.getFoundationString(3));
+        io.writeln(menuController.getFoundation(3));
         io.write("Escalera 1: ");
-        io.writeln(game.getTableauString(0));
+        io.writeln(menuController.getTableauPile(0));
         io.write("Escalera 2: ");
-        io.writeln(game.getTableauString(1));
+        io.writeln(menuController.getTableauPile(1));
         io.write("Escalera 3: ");
-        io.writeln(game.getTableauString(2));
+        io.writeln(menuController.getTableauPile(2));
         io.write("Escalera 4: ");
-        io.writeln(game.getTableauString(3));
+        io.writeln(menuController.getTableauPile(3));
         io.write("Escalera 5: ");
-        io.writeln(game.getTableauString(4));
+        io.writeln(menuController.getTableauPile(4));
         io.write("Escalera 6: ");
-        io.writeln(game.getTableauString(5));
+        io.writeln(menuController.getTableauPile(5));
         io.write("Escalera 7: ");
-        io.writeln(game.getTableauString(6));
+        io.writeln(menuController.getTableauPile(6));
         io.writeln("===========================");
     }
 

@@ -14,7 +14,7 @@ public class Logic {
 
     public Logic() {
         game = Game.getInstance();
-        menu = new MenuView(game);
+        menu = new MenuView();
     }
 
     public OperationController getOperationController() {

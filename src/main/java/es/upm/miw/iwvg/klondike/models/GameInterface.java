@@ -7,5 +7,5 @@ public interface GameInterface {
 
     String getFoundationString(int position);
 
-    String getTableauString(int position);
+    String getTableauPileString(int position);
 }
