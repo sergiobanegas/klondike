@@ -20,6 +20,8 @@ public class WasteToFoundationController extends MoveController {
     public void control() {
         if (game.isWasteEmpty()) {
             System.out.println(ErrorEnum.WASTE_EMPTY);
+        } else if (game.isFoundationEmpty(numFoundation)) {
+            System.out.println(ErrorEnum.FOUNDATION_EMPTY);
         } else if (validateMove() != null) {
             System.out.println(validateMove());
         } else {
