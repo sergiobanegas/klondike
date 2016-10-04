@@ -22,8 +22,8 @@ public class TableauToTableauController extends MoveController {
 
     @Override
     public void control() {
-        TableauPiles tableauOrigin = getTableauPile(numTableauOrigin);
-        TableauPiles tableauTarget = getTableauPile(numTableauTarget);
+        TableauPiles tableauOrigin = game.getTableauPile(numTableauOrigin);
+        TableauPiles tableauTarget = game.getTableauPile(numTableauTarget);
         if (checkFaceUpCard(tableauOrigin) != null) {
             System.out.println(checkFaceUpCard(tableauOrigin));
         } else if (checkFaceUpCard(tableauTarget) != null) {
@@ -43,10 +43,10 @@ public class TableauToTableauController extends MoveController {
 
     @Override
     public Error validateMove() {
-        TableauPiles tableauOrigin = getTableauPile(numTableauOrigin);
-        TableauPiles tableauTarget = getTableauPile(numTableauTarget);
+        TableauPiles tableauOrigin = game.getTableauPile(numTableauOrigin);
+        TableauPiles tableauTarget = game.getTableauPile(numTableauTarget);
         if (tableauTarget.isEmpty()) {
-            if (isCardValue(tableauOrigin.getFaceUpCard(numCards - 1), "K")) {
+            if (tableauOrigin.getFaceUpCard(numCards - 1).hasValue("K")) {
                 return null;
             } else {
                 return new Error(ErrorEnum.NOT_VALID_MOVE);
@@ -54,8 +54,8 @@ public class TableauToTableauController extends MoveController {
         } else {
             if (tableauOrigin.getFaceUpCardsNumber() < numCards) {
                 return new Error(ErrorEnum.NOT_ENOUGH_CARDS);
-            } else if (!getLastCardTableauPile(tableauTarget).validAboveTableau(tableauOrigin.getFaceUpCard(numCards))) {
-                return new Error(tableauOrigin.getFaceUpCard(numCards), getLastCardTableauPile(tableauTarget));
+            } else if (!tableauTarget.getLastCard().validAboveTableau(tableauOrigin.getFaceUpCard(numCards))) {
+                return new Error(tableauOrigin.getFaceUpCard(numCards), tableauTarget.getLastCard());
             }
         }
         return null;

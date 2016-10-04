@@ -19,7 +19,7 @@ public class FoundationToTableauController extends MoveController {
 
     @Override
     public void control() {
-        TableauPiles tableau = getTableauPile(numTableau);
+        TableauPiles tableau = game.getTableauPile(numTableau);
         if (game.isFoundationEmpty(numFoundation)) {
             System.out.println(new Error(ErrorEnum.FOUNDATION_EMPTY));
         } else if (checkFaceUpCard(tableau) != null) {
@@ -33,15 +33,15 @@ public class FoundationToTableauController extends MoveController {
 
     @Override
     public Error validateMove() {
-        TableauPiles tableau = getTableauPile(numTableau);
+        TableauPiles tableau = game.getTableauPile(numTableau);
         if (tableau.isEmpty()) {
-            if (isCardValue(getLastCard(getFoundation(numFoundation)), "k")) {
+            if (game.getFoundation(numFoundation).getLastCard().hasValue("K")) {
                 return null;
             } else {
                 return new Error(ErrorEnum.NOT_VALID_MOVE);
             }
-        } else if (!getLastCardTableauPile(tableau).validAboveTableau(getLastCard(getFoundation(numFoundation)))) {
-            return new Error(getLastCard(getFoundation(numFoundation)), getLastCardTableauPile(tableau));
+        } else if (!tableau.getLastCard().validAboveTableau(game.getFoundation(numFoundation).getLastCard())) {
+            return new Error(game.getFoundation(numFoundation).getLastCard(), tableau.getLastCard());
         }
         return null;
     }

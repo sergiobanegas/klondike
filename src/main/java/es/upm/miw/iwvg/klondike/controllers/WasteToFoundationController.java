@@ -18,30 +18,30 @@ public class WasteToFoundationController extends MoveController {
 
     @Override
     public void control() {
-        if (isWasteEmpty()) {
+        if (game.isWasteEmpty()) {
             System.out.println(ErrorEnum.WASTE_EMPTY);
         } else if (validateMove() != null) {
             System.out.println(validateMove());
         } else {
-            getFoundation(numFoundation).addCard(popLastCardWaste());
+            game.getFoundation(numFoundation).addCard(game.popCardWaste());
             super.control();
         }
     }
 
     @Override
     public Error validateMove() {
-        if (getFoundation(numFoundation).sameSuit(getLastCardWaste())) {
-            if (getFoundation(numFoundation).isEmpty()) {
-                if (isCardValue(getLastCardWaste(), "A")) {
+        if (game.getFoundation(numFoundation).sameSuit(game.getLastCardWaste())) {
+            if (game.getFoundation(numFoundation).isEmpty()) {
+                if (game.getLastCardWaste().hasValue("A")) {
                     return null;
                 }
                 return new Error(ErrorEnum.NOT_VALID_MOVE);
-            } else if (!getLastCard(getFoundation(numFoundation)).validAboveFoundation(getLastCardWaste())) {
-                return new Error(getLastCardWaste(), getLastCard(getFoundation(numFoundation)));
+            } else if (!game.getFoundation(numFoundation).getLastCard().validAboveFoundation(game.getLastCardWaste())) {
+                return new Error(game.getLastCardWaste(), game.getFoundation(numFoundation).getLastCard());
             }
             return null;
         }
-        return new Error(getLastCardWaste(), getLastCard(getFoundation(numFoundation)));
+        return new Error(game.getLastCardWaste(), game.getFoundation(numFoundation).getLastCard());
     }
 
     public void setNumFoundation(int numFoundation) {

@@ -19,29 +19,29 @@ public class WasteToTableauController extends MoveController {
 
     @Override
     public void control() {
-        TableauPiles tableau = getTableauPile(numTableau);
-        if (isWasteEmpty()) {
+        TableauPiles tableau = game.getTableauPile(numTableau);
+        if (game.isWasteEmpty()) {
             System.out.println(ErrorEnum.WASTE_EMPTY);
         } else if (checkFaceUpCard(tableau) != null) {
             System.out.println(checkFaceUpCard(tableau));
         } else if (validateMove() != null) {
             System.out.println(validateMove());
         } else {
-            tableau.addCardFaceUp(popLastCardWaste());
+            tableau.addCardFaceUp(game.popCardWaste());
         }
     }
 
     @Override
     public Error validateMove() {
-        TableauPiles tableau = getTableauPile(numTableau);
+        TableauPiles tableau = game.getTableauPile(numTableau);
         if (tableau.isEmpty()) {
-            if (isCardValue(getLastCardWaste(), "K")) {
+            if (game.getLastCardWaste().hasValue("K")) {
                 return null;
             } else {
                 return new Error(ErrorEnum.NOT_VALID_MOVE);
             }
-        } else if (!getLastCardTableauPile(tableau).validAboveTableau(getLastCardWaste())) {
-            return new Error(getLastCardWaste(), getLastCardTableauPile(tableau));
+        } else if (!tableau.getLastCard().validAboveTableau(game.getLastCardWaste())) {
+            return new Error(game.getLastCardWaste(), tableau.getLastCard());
         }
         return null;
     }

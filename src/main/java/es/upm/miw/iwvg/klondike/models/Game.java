@@ -69,7 +69,7 @@ public class Game implements GameInterface {
     public Card popCardDeck() {
         return deck.popCard();
     }
-    
+
     public Card popCardFoundation(int position) {
         return foundations.get(position).popCard();
     }

@@ -4,18 +4,18 @@ import es.upm.miw.iwvg.klondike.models.Card;
 
 public class Error {
 
-	private String message;
-	
-	public Error(ErrorEnum error){
-		this.message = error.toString();
-	}
-	
-	public Error(Card card1, Card card2){
-        this.message="ERROR!!! No se puede poner "+card1.toString()+" sobre "+card2.toString();
+    private String message;
+
+    public Error(ErrorEnum error) {
+        this.message = error.toString();
     }
-	
-	@Override
-	public String toString(){
-		return message;
-	}
+
+    public Error(Card card1, Card card2) {
+        this.message = "ERROR!!! No se puede poner " + card1.toString() + " sobre " + card2.toString();
+    }
+
+    @Override
+    public String toString() {
+        return message;
+    }
 }
